@@ -1,0 +1,38 @@
+.header__menu-link {
+    text-decoration: none;
+    color: #c32442;
+    font-size: 22px;
+    position: relative;
+}
+.header__menu-link:not(:last-child) {
+    margin-right: 20px;
+}
+.header__menu-link::before {
+    display: block;
+    content: "";
+    bottom: -5px;
+    position: absolute;
+    left: -5px;
+    height: 5px;
+    width: 5px;
+    border-left: 2px solid #c32442;
+    border-bottom: 2px solid #c32442;
+    opacity: 0;
+}
+.header__menu-link::after {
+    content: "";
+    position: absolute;
+    right: -5px;
+    top: -5px;
+    height: 5px;
+    width: 5px;
+    border-right: 2px solid #c32442;
+    border-top: 2px solid #c32442;
+    opacity: 0;
+}
+.header__menu-link:hover:before {
+    opacity: 1;
+}
+.header__menu-link:hover:after {
+    opacity: 1;
+}

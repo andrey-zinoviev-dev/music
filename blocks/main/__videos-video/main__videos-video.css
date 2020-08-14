@@ -1,0 +1,7 @@
+.main__videos-video {
+    max-height: 315px;
+    border: 1px solid black
+}
+.main__videos-video:not(:last-child) {
+    margin-bottom: 24px;
+}

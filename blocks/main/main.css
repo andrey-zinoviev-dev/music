@@ -1,0 +1,7 @@
+@import url(./__headline/main__headline.css);
+@import url(./__wrapper/main__wrapper.css);
+@import url(./__wrapper-element/main__wrapper-element.css);
+@import url(./__videos-video/main__videos-video.css);
+.main {
+    padding: 100px 0;
+}
