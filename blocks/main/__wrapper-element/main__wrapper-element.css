@@ -1,4 +1,5 @@
 .main__wrapper-element {
     display: flex;
     flex-direction: column;
+    width: 100%;
 }

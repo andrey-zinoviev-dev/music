@@ -18,6 +18,7 @@
     border-left: 2px solid #c32442;
     border-bottom: 2px solid #c32442;
     opacity: 0;
+    transition: opacity 0.3s ease-in-out;
 }
 .header__menu-link::after {
     content: "";
@@ -29,6 +30,7 @@
     border-right: 2px solid #c32442;
     border-top: 2px solid #c32442;
     opacity: 0;
+    transition: opacity 0.3s ease-in-out;
 }
 .header__menu-link:hover:before {
     opacity: 1;
