@@ -7,3 +7,5 @@
 @import url(../blocks/header/_background-added/header_background-added.css);
 @import url(../blocks/content/content.css);
 @import url(../blocks/main/main.css);
+@import url(../blocks/main/__headline/_active/main__headline_active.css);
+@import url(../blocks/main/__headline/_fixed/main__headline_fixed.css);
