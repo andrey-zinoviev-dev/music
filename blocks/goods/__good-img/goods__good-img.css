@@ -1,0 +1,6 @@
+.goods__good-img {
+  width: 450px;
+  height: 500px;
+  object-fit: cover;
+  border-radius: 20px;
+}

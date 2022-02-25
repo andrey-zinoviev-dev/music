@@ -1,9 +1,9 @@
 .root {
     /* max-width: 1280px;
     margin: 0 auto; */
-    font-family: "Teko";
-    background: rgb(126,20,20);
-    background: linear-gradient(180deg, rgba(73,56,56,1) 12%, rgba(126,20,20,1) 43%, rgba(0,0,0,1) 81%);
+    font-family: 'Ubuntu', sans-serif;
+    /* background: rgb(126,20,20);
+    background: linear-gradient(180deg, rgba(73,56,56,1) 12%, rgba(126,20,20,1) 43%, rgba(0,0,0,1) 81%); */
     /* background-color: black; */
     /* height: 5000px; */
     box-sizing: border-box;

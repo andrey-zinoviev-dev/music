@@ -1,0 +1,10 @@
+.interlude__headline {
+  margin: 0;
+  position: absolute;
+  top: -12%;
+  /* left: 40%; */
+  color: white;
+  font-size: 46px;
+  width: 100%;
+  text-align: center;
+}
