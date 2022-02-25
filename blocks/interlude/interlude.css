@@ -1,3 +1,6 @@
+@import url(./__headline/interlude__headline.css);
+@import url(./__text-wrapper/interlude__text-wrapper.css);
+@import url(./__span/interlude__span.css);
 .interlude {
   background-color: #c0517e;
   padding: 5% 0;

@@ -11,4 +11,5 @@
 @import url(../blocks/main/__headline/_active/main__headline_active.css);
 @import url(../blocks/main/__headline/_fixed/main__headline_fixed.css);
 @import url(../blocks/interlude/interlude.css);
+@import url(../blocks/interlude/__span/_signature/interlude__span_signature.css);
 @import url(../blocks/goods/goods.css);
