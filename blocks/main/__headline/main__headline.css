@@ -18,5 +18,6 @@
   color: transparent;
   -webkit-text-stroke: 2px #ff051b;
   text-shadow: 0 0px 15px #ff051b;
+  letter-spacing: 20px;
    /* color: grey; */
 }
