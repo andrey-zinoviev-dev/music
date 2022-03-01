@@ -8,6 +8,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;500;700&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/a116da90a0.js" crossorigin="anonymous"></script>
 </head>
 <body class="root">
     <header class="header">
@@ -56,20 +57,53 @@
                 <div class="goods__wrapper">
                     <div class="goods__wrapper-text">
                         <h2 class="goods__headline">Ты уникален. Осталось стать исключительным.</h2>
-                        <span class="goods__span">Включаем гипноз: ты — кожаный волосач с армией фанаток и собственным туровым автобусом. Эта сладкая иллюзия будет длиться пока ты слушаешь NEVERLOVE. Слушай NEVERLOVE, делись NEVERLOVE, СТАНЬ NEVERLOVE</span>
+                        <p class="goods__span">Включаем гипноз: ты — кожаный волосач с армией фанаток и собственным туровым автобусом. Эта сладкая иллюзия будет длиться пока ты слушаешь NEVERLOVE. Слушай NEVERLOVE, делись NEVERLOVE, СТАНЬ NEVERLOVE</p>
                     </div>
                 </div>
             </div>
             <div class="goods__overlay"></div>
         </section>
     </main>
+    <footer class="footer">
+        <div class="container container_flex-centered">
+            <img class="footer__logo" src="./images/neverlove_title.png" alt="">
+            <ul class="footer__list">
+                <li class="footer__list-element">
+                    <a class="footer__list-element-anchor" href="#">Доставка и оплата</a>
+                </li>
+                <li>
+                    <a class="footer__list-element-anchor" href="#">Состав и уход</a>
+                </li>
+                <li>
+                    <a class="footer__list-element-anchor" href="#">Контакты</a>
+                </li>
+                <li>
+                    <a class="footer__list-element-anchor" href="#">Обработка данных</a>
+                </li>
+            </ul>
+            <ul class="footer__list">
+                <li class="footer__list-element footer__list-element_round">
+                    <i class="footer__list-element-svg fa-brands fa-vk"></i>
+                </li>
+                <li class="footer__list-element footer__list-element_round">
+                    <i class="footer__list-element-svg fa-brands fa-youtube"></i>
+                </li>
+                <li class="footer__list-element footer__list-element_round">
+                    <i class="footer__list-element-svg fa-brands fa-instagram"></i>
+                </li>
+            </ul>
+        </div>
+    </footer>
     <template id="good">
         <div class="goods__good">
             <img class="goods__good-img" src="" alt="">
-            <span class="goods__good-span"></span>
-            <span class="goods__good-quantity"></span>
+            <div class="goods__good-text-wrapper">
+                <span class="goods__good-span"></span>
+                <span class="goods__good-quantity"></span>
+            </div>
         </div>
     </template>
+    
     <script src="./scripts/utils.js"></script>
     <script src="./scripts/index.js"></script>
 </body>

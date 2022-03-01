@@ -4,6 +4,8 @@
 @import url(./__wrapper-text/goods__wrapper-text.css);
 @import url(./__good/goods__good.css);
 @import url(./__good-img/goods__good-img.css);
+@import url(./__good-text-wrapper/goods__good-text-wrapper.css);
+@import url(./__good-span/goods__good-span.css);
 @import url(./__overlay/goods__overlay.css);
 .goods {
   height: 100vh;

@@ -2,7 +2,10 @@
 @import url(./__text-wrapper/interlude__text-wrapper.css);
 @import url(./__span/interlude__span.css);
 .interlude {
-  background-color: #c0517e;
+  background-image: linear-gradient(-45deg, rgba(255, 255, 255, 0.7) 10%, #C0517F 75%);
+  /* background-color: #c0517e; */
   padding: 5% 0;
   position: relative;
+  box-shadow: 0 0 60px #c0517f;
+  z-index: 10;
 }

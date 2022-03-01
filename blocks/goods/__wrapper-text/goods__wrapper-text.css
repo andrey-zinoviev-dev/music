@@ -1,4 +1,4 @@
 .goods__wrapper-text {
   color: #c0517e;
-  max-width: 450px;
+  flex-basis: 600px;
 }

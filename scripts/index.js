@@ -15,7 +15,7 @@ goods.forEach((good) => {
     const goodElementFromTemplate = generateFromTemplate(goodTemplate, '.goods__good');
     goodElementFromTemplate.querySelector('.goods__good-img').src = good.path;
     goodElementFromTemplate.querySelector('.goods__good-span').textContent = good.name;
-    goodElementFromTemplate.querySelector('.goods__good-quantity').textContent = good.quantity;
+    goodElementFromTemplate.querySelector('.goods__good-quantity').textContent = good.quantity > 0 ? "Есть в наличии" : "Нет в наличии";
 
     goodsWrapper.append(goodElementFromTemplate);
 })

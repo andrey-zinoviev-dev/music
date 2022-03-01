@@ -1,0 +1,10 @@
+@import url(./__logo/footer__logo.css);
+@import url(./__list/footer__list.css);
+@import url(./__list-element/footer__list-element.css);
+@import url(./__list-element-anchor/footer__list-element-anchor.css);
+@import url(./__list-element-svg/footer__list-element-svg.css);
+.footer {
+  border-top: 1px solid #ff051b;
+  box-sizing: border-box;
+  padding: 2% 0;
+}
