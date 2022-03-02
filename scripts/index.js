@@ -10,6 +10,14 @@ document.addEventListener('scroll', (evt) => {
     
 });
 
+//scroll to goods on click
+landingButton.addEventListener('click', () => {
+    goodsSection.scrollIntoView({
+        block: 'start',
+        behavior: "smooth",
+    });
+});
+
 //create and append goods elements in wrapper
 goods.forEach((good) => {
     const goodElementFromTemplate = generateFromTemplate(goodTemplate, '.goods__good');
@@ -19,6 +27,10 @@ goods.forEach((good) => {
 
     goodsWrapper.append(goodElementFromTemplate);
 })
+
+//animation interlude section
+
+
 
 
 // headline.classList.add('main__headline_active');

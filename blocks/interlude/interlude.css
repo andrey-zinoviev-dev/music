@@ -1,11 +1,50 @@
 @import url(./__headline/interlude__headline.css);
 @import url(./__text-wrapper/interlude__text-wrapper.css);
 @import url(./__span/interlude__span.css);
+
+@keyframes glow {
+  0%, 10%, 13%, 21%, 25%, 39%, 51%, 70%, 82%, 89% {
+    opacity: 0;
+  }
+  5%, 7%, 15%, 30%, 45%, 65%, 75%, 90%, 100% {
+    opacity: 1;
+  }
+}
+
+
 .interlude {
-  background-image: linear-gradient(-45deg, rgba(255, 255, 255, 0.7) 10%, #C0517F 75%);
+  background-image: linear-gradient(-45deg, #2cafc9 10%, #C0517F 80%);
+  /* linear-gradient(-45deg, rgba(255, 255, 255, 0.7) 10%, #C0517F 75%); */
   /* background-color: #c0517e; */
   padding: 5% 0;
   position: relative;
-  box-shadow: 0 0 60px #c0517f;
-  z-index: 10;
+ 
+  /* box-shadow: 0 0 60px #c0517f; */
+  /* z-index: 10; */
+}
+
+.interlude::before {
+  position: absolute;
+  content: "";
+  width: 100%;
+  height: 10px;
+  top: -2%;
+  left: 0%;
+  background-image: linear-gradient(-45deg, #2cafc9 10%, #C0517F 80%);
+  filter: blur(8px);
+  z-index: 1;
+  animation: var(--animation-name) 5s ease-in-out alternate;
+}
+
+.interlude::after {
+  position: absolute;
+  content: "";
+  width: 100%;
+  height: 10px;
+  bottom: -2%;
+  left: 0;
+  background-image: linear-gradient(-45deg, #2cafc9 10%, #C0517F 80%);
+  filter: blur(8px);
+  z-index: 1;
+  animation: var(--animation-name) 5s ease-in-out alternate;
 }
