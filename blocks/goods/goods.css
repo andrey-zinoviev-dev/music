@@ -8,11 +8,12 @@
 @import url(./__good-span/goods__good-span.css);
 @import url(./__overlay/goods__overlay.css);
 .goods {
-  height: 100vh;
+  min-height: 100vh;
   padding: 5% 0;
   /* background-color: black; */
   background-image: url(../../images/neverlove_gig.jpg);
   position: relative;
   box-sizing: border-box;
   border-top: 1px solid #813c58;
+  background-size: cover;
 }
