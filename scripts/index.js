@@ -26,6 +26,8 @@ goods.forEach((good) => {
     goodElementFromTemplate.querySelector('.goods__good-quantity').textContent = good.quantity > 0 ? "Есть в наличии" : "Нет в наличии";
 
     goodsWrapper.append(goodElementFromTemplate);
+
+    goodsCards.push(goodElementFromTemplate);
 })
 
 //animation interlude section
@@ -37,3 +39,31 @@ goods.forEach((good) => {
 // setInterval(() => {
 //     headline.classList.add('main__headline_fixed')
 // }, 2000)    
+
+// goodsCards.forEach((goodCard) => {
+//     const cardDimensions = {
+//         width: Math.ceil(goodCard.getBoundingClientRect().width),
+//         height: Math.ceil(goodCard.getBoundingClientRect().height),
+//         x: Math.ceil(goodCard.getBoundingClientRect().x),
+//         y: Math.ceil(goodCard.getBoundingClientRect().y),
+//     };
+
+//     // goodCard.addEventListener('mousemove', (evt) => {
+//     //     const degreeX =  evt.pageX - cardDimensions.x - cardDimensions.width/2;
+//     //     const degreeY = evt.pageY - cardDimensions.y - goodsSection.offsetTop -  cardDimensions.height/2;
+
+//     //     // console.log(evt.pageY - goodsSection.offsetTop - 97 - goodsWrapper.offsetTop - cardDimensions.height/2);
+//     //     // goodCard.style.transform = `perspective(500px) rotateX(${degreeY/12}deg) rotateY(${degreeX/15}deg)`;
+//     // });
+
+//     // goodCard.addEventListener('mouseleave', (evt) => {
+//     //     goodCard.style.transform = `perspective(500px) rotateX(0deg) rotateY(0deg)`;
+//     //     goodCard.style.transition = `transform 0.25s ease-in-out`;
+//     //     setTimeout(() => {
+//     //         goodCard.style.transition = 'none';
+//     //       }, 250);
+//     // })
+// })
+
+observer.observe(interludeSection);
+goodsObserver.observe(goodsSection);
