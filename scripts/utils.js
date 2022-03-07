@@ -2,47 +2,128 @@ const goods = [
   {
     name: "Футболка Сердце",
     path:"images/shirts.png",
-    quantity: 0,
+    inStock: true,
+    size: {
+      XS: 4,
+      S: 1,
+      M: 3,
+      L: 0,
+      XL: 2
+    },
+    material: '100% хлопок',
+    printMode: 'Высококлассная шелкография',
   },
   {
     name: "худи Сердце",
     path: "images/hoodie.png",
-    quantity: 2,
+    inStock: true,
+    size: {
+      XS: 4,
+      S: 1,
+      M: 3,
+      L: 0,
+      XL: 2
+    },
+    material: '100% хлопок',
+    printMode: 'Вытравная шелкография',
   }, 
   {
     name: "Футболка Ярослав",
     path: "images/yaroslav_t-shirt.png",
-    quantity: 1,
+    inStock: true,
+    size: {
+      XS: 4,
+      S: 1,
+      M: 3,
+      L: 0,
+      XL: 2
+    },
+    material: '100% хлопок',
+    printMode: 'Высококлассная шелкография',
   },
   {
     name: "Футболка Сердце",
     path:"images/shirts.png",
-    quantity: 0,
+    inStock: true,
+    size: {
+      XS: 4,
+      S: 1,
+      M: 3,
+      L: 0,
+      XL: 2
+    },
+    material: '100% хлопок',
+    printMode: 'Высококлассная шелкография',
   },
   {
     name: "худи Сердце",
     path: "images/hoodie.png",
-    quantity: 2,
+    inStock: true,
+    size: {
+      XS: 4,
+      S: 1,
+      M: 3,
+      L: 0,
+      XL: 2
+    },
+    material: '100% хлопок',
+    printMode: 'Вытравная шелкография',
   }, 
   {
     name: "Футболка Ярослав",
     path: "images/yaroslav_t-shirt.png",
-    quantity: 1,
+    inStock: true,
+    size: {
+      XS: 4,
+      S: 1,
+      M: 3,
+      L: 0,
+      XL: 2
+    },
+    material: '100% хлопок',
+    printMode: 'Высококлассная шелкография',
   },
   {
     name: "Футболка Сердце",
     path:"images/shirts.png",
-    quantity: 0,
+    inStock: true,
+    size: {
+      XS: 4,
+      S: 1,
+      M: 3,
+      L: 0,
+      XL: 2
+    },
+    material: '100% хлопок',
+    printMode: 'Высококлассная шелкография',
   },
   {
     name: "худи Сердце",
     path: "images/hoodie.png",
-    quantity: 2,
+    inStock: true,
+    size: {
+      XS: 4,
+      S: 1,
+      M: 3,
+      L: 0,
+      XL: 2
+    },
+    material: '100% хлопок',
+    printMode: 'Вытравная шелкография',
   }, 
   {
     name: "Футболка Ярослав",
     path: "images/yaroslav_t-shirt.png",
-    quantity: 1,
+    inStock: true,
+    size: {
+      XS: 4,
+      S: 1,
+      M: 3,
+      L: 0,
+      XL: 2
+    },
+    material: '100% хлопок',
+    printMode: 'Высококлассная шелкография',
   },
 ];
 
@@ -54,10 +135,21 @@ const goodsSectionContainer = goodsSection.querySelector('.container');
 const goodsWrapper = goodsSection.querySelector('.goods__wrapper');
 const interludeSection = document.querySelector('.interlude');
 const interludeHeadline = interludeSection.querySelector('.interlude__headline');
+const popups = Array.from(document.querySelectorAll('.popup'));
+const goodPopupSection = document.querySelector('.popup_good');
+const goodPopupSelect = goodPopupSection.querySelector('.popup__size-select');
+const spanQuantity = goodPopupSection.querySelector('.popup__size-quantity');
+const spanQuantityLeft = goodPopupSection.querySelector('.popup__size-quantity-stock');
+const goodPopupOrderButton = goodPopupSection.querySelector('.popup__order-button');
+
+//variables
 const goodsCards = [];
+let goodElement;
+// let sizeOfGood;
 
 //templates
 const goodTemplate = document.querySelector('#good');
+const optionTemplate = document.querySelector('#option');
 
 //functions
 function generateFromTemplate(template, selector) {

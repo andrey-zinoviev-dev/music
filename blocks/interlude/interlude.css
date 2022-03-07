@@ -18,7 +18,9 @@
   /* background-color: #c0517e; */
   padding: 5% 0;
   position: relative;
- 
+  /* border-top: 1px solid #ff051b; */
+  /* border-bottom: 1px solid #ff051b; */
+  color: white;
   /* box-shadow: 0 0 60px #c0517f; */
   /* z-index: 10; */
 }
@@ -31,9 +33,11 @@
   top: -2%;
   left: 0%;
   background-image: linear-gradient(-45deg, #2cafc9 10%, #C0517F 80%);
+  /* background-color: #ff051b; */
   filter: blur(8px);
+  opacity: 0;
   z-index: 1;
-  animation: var(--animation-name) 5s ease-in-out alternate;
+  animation: var(--animation-name) 5s ease-in-out forwards;
 }
 
 .interlude::after {
@@ -43,8 +47,10 @@
   height: 10px;
   bottom: -2%;
   left: 0;
+  /* background-color: #ff051b; */
+  opacity: 0;
   background-image: linear-gradient(-45deg, #2cafc9 10%, #C0517F 80%);
   filter: blur(8px);
   z-index: 1;
-  animation: var(--animation-name) 5s ease-in-out alternate;
+  animation: var(--animation-name) 5s ease-in-out forwards;
 }

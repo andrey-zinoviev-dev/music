@@ -1,0 +1,6 @@
+.popup__text-wrapper {
+  min-width: 500px;
+  color: white;
+  padding: 5% 0 0 0;
+  box-sizing: border-box;
+}
