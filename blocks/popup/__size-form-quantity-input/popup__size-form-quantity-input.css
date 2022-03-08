@@ -1,0 +1,3 @@
+.popup__size-form-quantity-input::-webkit-inner-spin-button, .popup__size-form-quantity-input::-webkit-outer-spin-button {
+  appearance: none;
+}

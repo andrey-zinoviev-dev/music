@@ -137,9 +137,14 @@ const interludeSection = document.querySelector('.interlude');
 const interludeHeadline = interludeSection.querySelector('.interlude__headline');
 const popups = Array.from(document.querySelectorAll('.popup'));
 const goodPopupSection = document.querySelector('.popup_good');
+const goodPopupHeadline = goodPopupSection.querySelector('.popup__headline');
+const goodPopupForm = goodPopupSection.querySelector('.popup__size-form');
+const elementsToSend = Array.from(goodPopupForm.querySelectorAll('.data-to-send'));
 const goodPopupSelect = goodPopupSection.querySelector('.popup__size-select');
 const spanQuantity = goodPopupSection.querySelector('.popup__size-quantity');
 const spanQuantityLeft = goodPopupSection.querySelector('.popup__size-quantity-stock');
+const goodPopupQuantityWrapper = goodPopupForm.querySelector('.popup__size-form-quantity-wrapper');
+const goodPopupQuantityInput = goodPopupForm.querySelector('.popup__size-form-quantity-input');
 const goodPopupOrderButton = goodPopupSection.querySelector('.popup__order-button');
 
 //variables
@@ -203,5 +208,9 @@ const goodsObserver = new IntersectionObserver((entries) => {
   })
 }, {
   rootMargin: "0px 0px -95% 0px",
-})
+});
+
+const showSelectValue = function(element, good) {
+  return good.size[element.value];
+};
 

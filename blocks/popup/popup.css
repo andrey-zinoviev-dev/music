@@ -2,7 +2,9 @@
 @import url(./__close/popup__close.css);
 @import url(./__close-logo/popup__close-logo.css);
 @import url(./__text-wrapper/popup__text-wrapper.css);
-@import url(./__size-wrapper/popup__size-wrapper.css);
+@import url(./__size-form/popup__size-form.css);
+@import url(./__size-form-quantity-wrapper/popup__size-form-quantity-wrapper.css);
+@import url(./__size-form-quantity-input/popup__size-form-quantity-input.css);
 @import url(./__size-span/popup__size-span.css);
 @import url(./__text-size-remains/popup__text-size-remains.css);
 @import url(./__span-good-material/popup__span-good-material.css);

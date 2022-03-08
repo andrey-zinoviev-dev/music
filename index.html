@@ -103,19 +103,25 @@
             <img class="popup__image" src="" alt="">
             <div class="popup__text-wrapper">
                 <h2 class="popup__headline"></h2>
-                <div class="popup__size-wrapper">
-                    <span class="popup__size-span">Размеры</span>
-                    <select name="size" id="" class="popup__size-select">
-                        <option selected>Выберите размер</option>
-                    </select>
-                </div>
                 <div class="popup__text-size-remains">
                     <span class="popup__size-quantity"></span>
                     <span class="popup__size-quantity-stock"></span>
                 </div>
                 <span class="popup__span-good-material"></span>
                 <span class="popup__span-good-print"></span>
-                <button class="popup__order-button popup__order-button_disabled" disabled>Добавить в корзину</button>
+                <form class="popup__size-form">
+                    <span class="popup__size-span">Размеры</span>
+                    <select name="size" id="" class="popup__size-select data-to-send">
+                        <option selected>Выберите размер</option>
+                    </select>
+                    <div class="popup__size-form-quantity-wrapper">
+                        <!-- <button>+</button> -->
+                        <span>Количество</span>
+                        <input class="popup__size-form-quantity-input data-to-send" type="number" name="quantity" value="1"/>
+                        <!-- <button>-</button> -->
+                    </div>
+                    <button type="submit" class="popup__order-button popup__order-button_disabled" disabled>Добавить в корзину</button>
+                </form>
             </div>
         </div>
         <div class="popup__overlay"></div>
