@@ -12,6 +12,7 @@ const goods = [
     },
     material: '100% хлопок',
     printMode: 'Высококлассная шелкография',
+    price: 1999,
   },
   {
     name: "худи Сердце",
@@ -26,6 +27,7 @@ const goods = [
     },
     material: '100% хлопок',
     printMode: 'Вытравная шелкография',
+    price: 3999,
   }, 
   {
     name: "Футболка Ярослав",
@@ -40,6 +42,7 @@ const goods = [
     },
     material: '100% хлопок',
     printMode: 'Высококлассная шелкография',
+    price: 2199,
   },
   {
     name: "Футболка Сердце",
@@ -54,6 +57,7 @@ const goods = [
     },
     material: '100% хлопок',
     printMode: 'Высококлассная шелкография',
+    price: 1999,
   },
   {
     name: "худи Сердце",
@@ -68,6 +72,7 @@ const goods = [
     },
     material: '100% хлопок',
     printMode: 'Вытравная шелкография',
+    price: 3999,
   }, 
   {
     name: "Футболка Ярослав",
@@ -82,6 +87,7 @@ const goods = [
     },
     material: '100% хлопок',
     printMode: 'Высококлассная шелкография',
+    price: 2199,
   },
   {
     name: "Футболка Сердце",
@@ -96,6 +102,7 @@ const goods = [
     },
     material: '100% хлопок',
     printMode: 'Высококлассная шелкография',
+    price: 1999,
   },
   {
     name: "худи Сердце",
@@ -110,6 +117,7 @@ const goods = [
     },
     material: '100% хлопок',
     printMode: 'Вытравная шелкография',
+    price: 3999,
   }, 
   {
     name: "Футболка Ярослав",
@@ -124,10 +132,14 @@ const goods = [
     },
     material: '100% хлопок',
     printMode: 'Высококлассная шелкография',
+    price: 2199,
   },
 ];
 
 //selectors
+const headerSection = document.querySelector('.header');
+const cartButton = headerSection.querySelector('.header__cart-button');
+const cartOrdersQuantity = headerSection.querySelector('.header__cart-button-span');
 const mainContent = document.querySelector('.content');
 const landingButton = document.querySelector('.main__button');
 const goodsSection = document.querySelector('.goods');
@@ -146,15 +158,22 @@ const spanQuantityLeft = goodPopupSection.querySelector('.popup__size-quantity-s
 const goodPopupQuantityWrapper = goodPopupForm.querySelector('.popup__size-form-quantity-wrapper');
 const goodPopupQuantityInput = goodPopupForm.querySelector('.popup__size-form-quantity-input');
 const goodPopupOrderButton = goodPopupSection.querySelector('.popup__order-button');
+const cartSection = document.querySelector('.cart');
+const cartSectionCloseButton = cartSection.querySelector('.cart__close-wrapper-button');
+const cartList = cartSection.querySelector('.cart__list');
+const emptyCartListElement = cartList.querySelector('.cart__list-element_empty-cart');
+const cartSubmitButton = cartSection.querySelector('.cart__button-submit');
 
 //variables
 const goodsCards = [];
 let goodElement;
-// let sizeOfGood;
+let cartQuantity = +cartOrdersQuantity.textContent;
+let goodsToAddToCart = [];
 
 //templates
 const goodTemplate = document.querySelector('#good');
 const optionTemplate = document.querySelector('#option');
+const liTempalte = document.querySelector('#list-element');
 
 //functions
 function generateFromTemplate(template, selector) {

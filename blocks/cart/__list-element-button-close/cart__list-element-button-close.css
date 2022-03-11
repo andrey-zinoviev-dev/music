@@ -1,0 +1,8 @@
+.cart__list-element-button-close {
+  background-color: transparent;
+  border: none;
+  position: absolute;
+  top: 10%;
+  right: 2%;
+  cursor: pointer;
+}

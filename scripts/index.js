@@ -10,6 +10,17 @@ document.addEventListener('scroll', (evt) => {
     
 });
 
+//cart open
+cartButton.addEventListener('click', () => {
+    cartSection.classList.add('cart_opened');
+    // console.log(goodsToAddToCart);
+});
+
+//cart close
+cartSectionCloseButton.addEventListener('click', () => {
+    cartSection.classList.remove('cart_opened');
+});
+
 //scroll to goods on click
 landingButton.addEventListener('click', () => {
     goodsSection.scrollIntoView({
@@ -107,21 +118,49 @@ goodPopupQuantityInput.addEventListener('input', (evt) => {
     return goodPopupOrderButton.disabled = false;
 });
 
-//place order event
+//add clothes to cart event
 goodPopupOrderButton.addEventListener('click', (evt) => {
     const objectToSend = {};
-    objectToSend.name = goodPopupHeadline.textContent;
+    objectToSend.pic = goodElement.path;
+    objectToSend.name = goodElement.name;
+    objectToSend.price = goodElement.price;
     elementsToSend.forEach((element) => {
         objectToSend[element.name] = element.value;   
     });
+
     evt.preventDefault();
-    //main info to send to DB
-    console.log(objectToSend);
+
+    goodsToAddToCart.push(objectToSend);
+
+    cartOrdersQuantity.textContent = `${goodsToAddToCart.length}`;
+
+    emptyCartListElement.classList.add('cart__list-element_hidden');
+
+    //main info to send to cart
+    const liToInsert = generateFromTemplate(liTempalte, '.cart__list-element');
+    const removeLiFromListButton = liToInsert.querySelector('.cart__list-element-button-close');
+    removeLiFromListButton.addEventListener('click', () => {
+        goodsToAddToCart.pop(objectToSend);
+        if(goodsToAddToCart.length <= 0) {
+            emptyCartListElement.classList.remove('cart__list-element_hidden');
+        };
+
+        cartOrdersQuantity.textContent = `${goodsToAddToCart.length}`;
+        cartList.removeChild(liToInsert);
+
+    });
+
+    liToInsert.querySelector('.cart__list-element-img').src = objectToSend.pic;
+    liToInsert.querySelector('.cart__list-element-name').textContent = objectToSend.name;
+    liToInsert.querySelector('.cart__list-element-quantity').textContent = `Количество ${objectToSend.quantity}`;
+    liToInsert.querySelector('.cart__list-element-price').textContent = `${objectToSend.price}`;
+    cartList.append(liToInsert);
 });
-// headline.classList.add('main__headline_active');
-// setInterval(() => {
-//     headline.classList.add('main__headline_fixed')
-// }, 2000)
+
+//place order event
+// cartSubmitButton.addEventListener('click',  () => {
+//     console.log('send data and open order summary page');
+// });
 
 observer.observe(interludeSection);
 goodsObserver.observe(goodsSection);

@@ -1,0 +1,7 @@
+.cart__list-element-text-wrapper {
+  padding: 2% 5%;
+  box-sizing: border-box;
+  min-height: 73px;
+  width: 100%;
+  text-align: left;
+}

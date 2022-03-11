@@ -1,0 +1,9 @@
+.cart__list-element-button-close-logo {
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 20px;
+  transition: color 0.25s ease-in-out;
+}
+
+.cart__list-element-button-close:hover .cart__list-element-button-close-logo {
+  color: rgba(255, 255, 255, 1);
+}

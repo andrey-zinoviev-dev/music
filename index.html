@@ -20,6 +20,10 @@
                 <a href="" class="header__menu-link">Главная</a>
                 <a href="" class="header__menu-link">Мерч</a>
                 <a href="" class="header__menu-link">Видео</a>
+                <button class="header__cart-button">
+                    <i class="header__cart-button-logo fa-solid fa-cart-arrow-down"></i>
+                    <span class="header__cart-button-span">0</span>
+                </button>
             </nav>
         </div>
     </header>
@@ -126,6 +130,26 @@
         </div>
         <div class="popup__overlay"></div>
     </section>
+    <section class="cart">
+        <div class="cart__contents">
+            <div class="wrapper">
+                <div class="cart__close-wrapper">
+                    <button class="cart__close-wrapper-button">Закрыть коризну</button>
+                </div>
+                <ul class="cart__list">
+                    <li class="cart__list-element cart__list-element_empty-cart">
+                        <i class="cart__list-element-empty fa-solid fa-cart-shopping"></i>
+                        <span>Корзина пуста, но это пока что</span>
+                    </li>
+                </ul>
+            </div>
+            <!-- <button class="cart__button-submit">Оформить заказ
+                
+            </button> -->
+            <a href="./order.html" class="cart__button-submit">Оформить заказ</a>
+        </div>
+        <div class="cart__overlay"></div>
+    </section>
     <template id="good">
         <div class="goods__good">
             <img class="goods__good-img" src="" alt="">
@@ -137,6 +161,20 @@
     </template>
     <template id="option">
         <option class="popup__size-select-option"></option>
+    </template>
+    <template id="list-element">
+        <li class="cart__list-element">
+            <button class="cart__list-element-button-close"><i class="cart__list-element-button-close-logo fa-solid fa-xmark"></i></button>
+            <img class="cart__list-element-img" src="" alt="">
+            <div class="cart__list-element-text-wrapper">
+                <span class="cart__list-element-name"></span>
+                <div class="cart__list-element-price-wrapper">
+                    <span class="cart__list-element-quantity"></span>
+                    <span class="cart__list-element-price"></span>
+                </div>
+                <!-- <span class="cart__list-element-quantity"></span> -->
+            </div>
+        </li>
     </template>
     <script src="./scripts/utils.js"></script>
     <script src="./scripts/index.js"></script>
