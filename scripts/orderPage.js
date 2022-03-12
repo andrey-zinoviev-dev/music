@@ -1,1 +1,1 @@
-console.log(goodsToAddToCart);
+// console.log(goodsToAddToCart);

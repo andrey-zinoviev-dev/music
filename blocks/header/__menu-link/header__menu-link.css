@@ -1,13 +1,18 @@
 .header__menu-link {
     text-decoration: none;
-    color: #c32442;
+    /* color: #c32442; */
+    color: #ff051ab2;
     font-size: 22px;
     position: relative;
+    transition: color 0.25s ease-in-out;
+}
+.header__menu-link:hover {
+    color: #ff051a;
 }
 .header__menu-link:not(:last-child) {
     margin-right: 20px;
 }
-.header__menu-link::before {
+/* .header__menu-link::before {
     display: block;
     content: "";
     bottom: -5px;
@@ -37,4 +42,4 @@
 }
 .header__menu-link:hover:after {
     opacity: 1;
-}
+} */

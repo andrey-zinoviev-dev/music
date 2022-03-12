@@ -1,0 +1,19 @@
+@import url(./__headline/order__headline.css);
+@import url(./__form/order__form.css);
+@import url(./__form-input/order__form-input.css);
+@import url(./__form-delivery-select/order__form-delivery-select.css);
+@import url(./__form-delivery-select-option/order__form-delivery-select-option.css);
+@import url(./__form-button-submit/order__form-button-submit.css);
+@import url(./__overlay/order__overlay.css);
+.order {
+  background-image: url(../../images/neverlove_gig.jpg);
+  background-size: cover;
+  /* min-height: 75vh; */
+  min-height: 100vh;
+  position: relative;
+  /* padding: 5% 0; */
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

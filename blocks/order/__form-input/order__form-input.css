@@ -1,0 +1,17 @@
+.order__form-input {
+  padding: 2% 5%;
+  background-color: transparent;
+  border: none;
+  border-bottom: 1px solid #9aebec50;
+  outline: none;
+  color: white;
+  cursor: pointer;
+}
+
+.order__form-input::placeholder {
+  color: white;
+}
+
+.order__form-input:focus {
+  border-bottom: 1px solid #9aeaec;
+}

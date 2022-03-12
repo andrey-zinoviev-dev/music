@@ -1,0 +1,16 @@
+.order__form-button-submit {
+  max-width: 50%;
+  margin: 5% auto 0 auto;
+  padding: 2%;
+  background-color: transparent;
+  border: 2px solid rgba(25,171,193,0.7);
+  color: rgba(25,171,193,1);
+  cursor: pointer;
+  transition: background-color 0.35s ease-in-out, color 0.35s ease-in-out, border 0.25s ease-in-out 0.05s;
+}
+
+.order__form-button-submit:hover {
+  border: 2px solid rgba(25,171,193,1);
+  background-color: rgba(25,171,193,1);
+  color: white;
+}
