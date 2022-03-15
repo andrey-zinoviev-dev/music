@@ -1,0 +1,9 @@
+.order__details-content-wrapper {
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  padding: 5% 30% 5% 0;
+  box-sizing: border-box;
+  border-bottom: 1px solid white;
+  font-size: 18px;
+}

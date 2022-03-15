@@ -1,5 +1,6 @@
 .order__headline {
   margin: 0 0 10% 0;
-  padding: 0 30px;
+  /* padding: 0px 25px; */
   color: white;
+  font-weight: 500;
 }
