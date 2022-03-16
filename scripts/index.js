@@ -1,3 +1,6 @@
+//set cookies for cart
+document.cooki
+
 const headline = document.querySelector('.main__headline');
 const header = document.querySelector('.header');
 
@@ -158,9 +161,11 @@ goodPopupOrderButton.addEventListener('click', (evt) => {
 });
 
 //place order event
-// cartSubmitButton.addEventListener('click',  () => {
-//     console.log('send data and open order summary page');
-// });
+cartSubmitButton.addEventListener('click',  (evt) => {
+    // evt.preventDefault();
+    mainApi.sendCartDetails(goodsToAddToCart);
+    console.log('send data and open order summary page');
+});
 
 observer.observe(interludeSection);
 goodsObserver.observe(goodsSection);
