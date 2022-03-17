@@ -10,15 +10,25 @@ class Api {
     return err;
   }
 
+  setCartCookie() {
+    return fetch(`${this.url}/`, {
+      credentials: "include",
+    })
+    .then(this._handleResponse)
+    .catch(this._handleError);
+  }
+
   getCartDetailsOnLoad() {
     return fetch(`${this.url}/orderpage`)
     .then(this._handleResponse)
     .catch(this._handleError)
   }
+
   sendCartDetails(cart) {
-      return fetch(`${this.url}/orderpage`, {
+      return fetch(`${this.url}/updateCart`, {
         method: 'POST',
         headers: this.headers,
+        credentials: "include",
         body: JSON.stringify(
           cart
         ),

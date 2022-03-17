@@ -12,7 +12,7 @@ function sumSelectorValues(value1, value2) {
 const finalSum = sumSelectorValues(orderSubtotalPriceSpan.textContent, orderDeliveryPriceSpan.textContent);
 orderTotalPriceSpan.textContent = finalSum;
 
-mainApi.getCartDetailsOnLoad()
+mainApi.setCartCookie()
 .then((data) => {
   console.log(data);
-})
+});

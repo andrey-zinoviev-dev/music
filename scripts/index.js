@@ -1,5 +1,44 @@
 //set cookies for cart
-document.cooki
+mainApi.setCartCookie()
+.then((data) => {
+    if(data.message) {
+        emptyCartListElement.classList.remove('cart__list-element_hidden');
+        return;
+    }
+    //goodsArray test
+    goodsToAddToCart = data;
+    cartOrdersQuantity.textContent = `${goodsToAddToCart.length}`;
+    
+
+    goodsToAddToCart.forEach((goodToAdd) => {
+        const liToInsert = generateFromTemplate(liTempalte, '.cart__list-element');
+        const removeLiFromListButton = liToInsert.querySelector('.cart__list-element-button-close');
+        emptyCartListElement.classList.add('cart__list-element_hidden');
+
+        removeLiFromListButton.addEventListener('click', () => {
+            goodsToAddToCart.pop(goodToAdd);
+            if(goodsToAddToCart.length <= 0) {
+                emptyCartListElement.classList.remove('cart__list-element_hidden');
+            };
+            
+            cartOrdersQuantity.textContent = `${goodsToAddToCart.length}`;
+            cartList.removeChild(liToInsert);
+        });
+
+        liToInsert.querySelector('.cart__list-element-img').src = goodToAdd.pic;
+        liToInsert.querySelector('.cart__list-element-name').textContent = goodToAdd.name;
+        liToInsert.querySelector('.cart__list-element-quantity').textContent = `Количество ${goodToAdd.quantity}`;
+        liToInsert.querySelector('.cart__list-element-price').textContent = `${goodToAdd.price}`;
+        cartList.append(liToInsert);
+
+        // console.log(goodToAdd);
+    })
+    // goodsToAddToCart.forEach(() >)
+    return;
+    // console.log(goodsToAddToCart, data);
+    // return goodsToAddToCart = data;
+})
+
 
 const headline = document.querySelector('.main__headline');
 const header = document.querySelector('.header');
@@ -158,13 +197,23 @@ goodPopupOrderButton.addEventListener('click', (evt) => {
     liToInsert.querySelector('.cart__list-element-quantity').textContent = `Количество ${objectToSend.quantity}`;
     liToInsert.querySelector('.cart__list-element-price').textContent = `${objectToSend.price}`;
     cartList.append(liToInsert);
+
+    //change cart cookie value
+    mainApi.sendCartDetails(goodsToAddToCart)
+    .then((data) => {
+        console.log(data);
+        goodPopupSection.classList.remove('popup_opened');
+    })
 });
 
 //place order event
 cartSubmitButton.addEventListener('click',  (evt) => {
     // evt.preventDefault();
-    mainApi.sendCartDetails(goodsToAddToCart);
-    console.log('send data and open order summary page');
+    // mainApi.sendCartDetails(goodsToAddToCart)
+    // .then((data) => {
+    //     console.log(data);
+    // })
+    // console.log('send data and open order summary page');
 });
 
 observer.observe(interludeSection);
