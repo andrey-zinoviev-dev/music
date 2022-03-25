@@ -57,6 +57,7 @@ class Api {
   loadInitialCookie() {
     return fetch(`${this.url}/cartcookie`, {
       headers: this.headers,
+      credentials: 'include',
     })
     .then(this._handleResponse)
     .catch(this._handleError);
