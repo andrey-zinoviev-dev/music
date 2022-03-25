@@ -206,7 +206,7 @@ goodPopupOrderButton.addEventListener('click', (evt) => {
 
 //place order event
 cartSubmitButton.addEventListener('click',  (evt) => {
-    // evt.preventDefault();
+    evt.preventDefault();
     // mainApi.sendCartDetails(goodsToAddToCart)
     // .then((data) => {
     //     console.log(data);
