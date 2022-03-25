@@ -1,43 +1,43 @@
 //set cookies for cart
-mainApi.setCartCookie()
-.then((data) => {
-    if(data.message) {
-        emptyCartListElement.classList.remove('cart__list-element_hidden');
-        return;
-    }
-    //goodsArray test
-    goodsToAddToCart = data;
-    cartOrdersQuantity.textContent = `${goodsToAddToCart.length}`;
+// mainApi.setCartCookie()
+// .then((data) => {
+//     if(data.message) {
+//         emptyCartListElement.classList.remove('cart__list-element_hidden');
+//         return;
+//     }
+//     //goodsArray test
+//     goodsToAddToCart = data;
+//     cartOrdersQuantity.textContent = `${goodsToAddToCart.length}`;
     
 
-    goodsToAddToCart.forEach((goodToAdd) => {
-        const liToInsert = generateFromTemplate(liTempalte, '.cart__list-element');
-        const removeLiFromListButton = liToInsert.querySelector('.cart__list-element-button-close');
-        emptyCartListElement.classList.add('cart__list-element_hidden');
+//     goodsToAddToCart.forEach((goodToAdd) => {
+//         const liToInsert = generateFromTemplate(liTempalte, '.cart__list-element');
+//         const removeLiFromListButton = liToInsert.querySelector('.cart__list-element-button-close');
+//         emptyCartListElement.classList.add('cart__list-element_hidden');
 
-        removeLiFromListButton.addEventListener('click', () => {
-            goodsToAddToCart.pop(goodToAdd);
-            if(goodsToAddToCart.length <= 0) {
-                emptyCartListElement.classList.remove('cart__list-element_hidden');
-            };
+//         removeLiFromListButton.addEventListener('click', () => {
+//             goodsToAddToCart.pop(goodToAdd);
+//             if(goodsToAddToCart.length <= 0) {
+//                 emptyCartListElement.classList.remove('cart__list-element_hidden');
+//             };
             
-            cartOrdersQuantity.textContent = `${goodsToAddToCart.length}`;
-            cartList.removeChild(liToInsert);
-        });
+//             cartOrdersQuantity.textContent = `${goodsToAddToCart.length}`;
+//             cartList.removeChild(liToInsert);
+//         });
 
-        liToInsert.querySelector('.cart__list-element-img').src = goodToAdd.pic;
-        liToInsert.querySelector('.cart__list-element-name').textContent = goodToAdd.name;
-        liToInsert.querySelector('.cart__list-element-quantity').textContent = `Количество ${goodToAdd.quantity}`;
-        liToInsert.querySelector('.cart__list-element-price').textContent = `${goodToAdd.price}`;
-        cartList.append(liToInsert);
+//         liToInsert.querySelector('.cart__list-element-img').src = goodToAdd.pic;
+//         liToInsert.querySelector('.cart__list-element-name').textContent = goodToAdd.name;
+//         liToInsert.querySelector('.cart__list-element-quantity').textContent = `Количество ${goodToAdd.quantity}`;
+//         liToInsert.querySelector('.cart__list-element-price').textContent = `${goodToAdd.price}`;
+//         cartList.append(liToInsert);
 
-        // console.log(goodToAdd);
-    })
-    // goodsToAddToCart.forEach(() >)
-    return;
-    // console.log(goodsToAddToCart, data);
-    // return goodsToAddToCart = data;
-})
+//         // console.log(goodToAdd);
+//     })
+//     // goodsToAddToCart.forEach(() >)
+//     return;
+//     // console.log(goodsToAddToCart, data);
+//     // return goodsToAddToCart = data;
+// })
 
 
 const headline = document.querySelector('.main__headline');

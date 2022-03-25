@@ -85,6 +85,6 @@ class Api {
   };
 };
 
-const mainApi = new Api('/', {
+const mainApi = new Api('https://api.neverlovemusic.store/orderPage/', {
   'Content-Type': 'application/json',
 });
