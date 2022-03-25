@@ -55,7 +55,7 @@ class Api {
   }
 
   loadInitialCookie() {
-    return fetch(`${this.url}cartcookie`, {
+    return fetch(`${this.url}/cartcookie`, {
       headers: this.headers,
     })
     .then(this._handleResponse)
@@ -63,7 +63,7 @@ class Api {
   }
 
   getCartDetailsOnLoad() {
-    return fetch(`${this.url}orderpage`, {
+    return fetch(`${this.url}/orderpage`, {
       credentials: 'include',
     })
     .then(this._handleResponse)
@@ -71,7 +71,7 @@ class Api {
   }
 
   sendCartDetails(cart, hash) {
-      return fetch(`${this.url}updateCart`, {
+      return fetch(`${this.url}/updateCart`, {
         method: 'POST',
         headers: this.headers,
         credentials: "include",
@@ -85,6 +85,6 @@ class Api {
   };
 };
 
-const mainApi = new Api('https://api.neverlovemusic.store/orderPage/', {
+const mainApi = new Api('https://api.neverlovemusic.store', {
   'Content-Type': 'application/json',
 });
