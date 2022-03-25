@@ -7,6 +7,8 @@
 @import url(./__form-button-submit/order__form-button-submit.css);
 @import url(./__details-wrapper/order__details-wrapper.css);
 @import url(./__details-content-wrapper/order__details-content-wrapper.css);
+@import url(./__details-content-detail/order__details-content-detail.css);
+@import url(./__details-content-detail-para/order__details-content-detail-para.css);
 @import url(./__details-content-name/order__details-content-name.css);
 @import url(./__details-price-wrapper/order__details-price-wrapper.css);
 @import url(./__details-price-wrapper-div/order__details-price-wrapper-div.css);

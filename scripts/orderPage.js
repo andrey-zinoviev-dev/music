@@ -1,18 +1,34 @@
-//selectors
-const orderSection = document.querySelector('.order');
-const orderSubtotalPriceSpan = orderSection.querySelector('.order__details-price-subtotal');
-const orderDeliveryPriceSpan = orderSection.querySelector('.order__details-price-delivery');
-const orderTotalPriceSpan = orderSection.querySelector('.order__details-price-total');
+console.log('order page loaded');
+console.log(JSON.parse(localStorage.getItem('cart')));
+// mainApi.getCartDetailsOnLoad()
+// .then((data) => {
+//   cartOrdersQuantity.textContent = data.length;
+//   let preFinalSum = 0;
+//   data.forEach((element) => {
+    
+//     const cartElementFromTemplate = generateFromTemplate(cartDetailTemplate, '.order__details-content-detail');
+//     const cartElementName = cartElementFromTemplate.querySelector('.order__details-content-detail-para').textContent = element.name;
+//     const cartElementQuantity = cartElementFromTemplate.querySelector('.order__details-content-quantity').textContent = element.quantity;
+//     const cartElementPrice = cartElementFromTemplate.querySelector('.order__details-content-detail-span').textContent = element.price;
+//     orderDetailsWrapper.append(cartElementFromTemplate);
+//     preFinalSum = preFinalSum + +element.price;
+//   });
+//   orderSubtotalPriceSpan.textContent = preFinalSum;
+// });
 
-//functions
-function sumSelectorValues(value1, value2) {
-  return +value1 + +value2;
-};
+orderFormInputs.forEach((input) => {
+  input.addEventListener('input', () => {
+    formDataToSend[input.name] = input.value;
+  });
+})
 
-const finalSum = sumSelectorValues(orderSubtotalPriceSpan.textContent, orderDeliveryPriceSpan.textContent);
-orderTotalPriceSpan.textContent = finalSum;
+deliverySelect.addEventListener('change', (evt) => {
+  orderDeliveryPriceSpan.textContent = evt.currentTarget.value;
+  const finalSum = sumSelectorValues(orderSubtotalPriceSpan.textContent, orderDeliveryPriceSpan.textContent);
+  orderTotalPriceSpan.textContent = finalSum;
+});
 
-mainApi.setCartCookie()
-.then((data) => {
-  console.log(data);
+orderFormSubmitButton.addEventListener('click', (evt) => {
+  evt.preventDefault();
+  // console.log(formDataToSend);
 });

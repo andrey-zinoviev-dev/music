@@ -28,49 +28,50 @@
     <section class="order">
       <div class="container">
         <div class="order__wrapper">
-          <div class="order__billing-wrapper">
-            <h2 class="order__headline">Ваш заказ</h2>
+          <!-- <div class="order__billing-wrapper"> -->
+            <!-- <h2 class="order__headline">Адреса с оплатой</h2> -->
             <form class="order__form" action="/" method="POST">
-              <input class="order__form-input" type="text" name="family-name" placeholder="Фамилия" required autocomplete="off">
-              <input class="order__form-input" type="text" name="first-name" placeholder="Имя" required autocomplete="off">
-              <input class="order__form-input" type="text" name="middle-name" placeholder="Отчество" required autocomplete="off">
-              <input class="order__form-input" type="text" name="country" placeholder="Страна" required autocomplete="off">
-              <input class="order__form-input" type="text" name="address" placeholder="Адрес доставки" required autocomplete="off">
-              <input class="order__form-input" type="tel" name="phone" placeholder="Телефон" required autocomplete="off">
-              <input class="order__form-input" type="email" name="email" placeholder="Электронная почта" required autocomplete="off">
-              <select class="order__form-delivery-select" required>
-                <option class="order__form-delivery-select-option" value="" selected>Выберите службу доставки</option>
-                <option class="order__form-delivery-select-option" value="ems">EMS Доставка</option>
-                <option class="order__form-delivery-select-option" value="rms">Почта России</option>
-                <option class="order__form-delivery-select-option" value="cdek">СДЕК Доставка</option>
-              </select>
+              <div >
+                <input class="order__form-input" type="text" name="family-name" placeholder="Фамилия" required autocomplete="off">
+                <input class="order__form-input" type="text" name="first-name" placeholder="Имя" required autocomplete="off">
+                <input class="order__form-input" type="text" name="middle-name" placeholder="Отчество" required autocomplete="off">
+                <input class="order__form-input" type="text" name="country" placeholder="Страна" required autocomplete="off">
+                <input class="order__form-input" type="text" name="address" placeholder="Адрес доставки" required autocomplete="off">
+                <input class="order__form-input" type="tel" name="phone" placeholder="Телефон" required autocomplete="off">
+                <input class="order__form-input" type="email" name="email" placeholder="Электронная почта" required autocomplete="off">
+                <select class="order__form-delivery-select" required placeholder="Служба доставки">
+                  <option class="order__form-delivery-select-option" value="">Выберите службу доставки</option>
+                  <option class="order__form-delivery-select-option" value="419">EMS Доставка</option>
+                  <option class="order__form-delivery-select-option" value="799">Почта России</option>
+                  <option class="order__form-delivery-select-option" value="359">СДЕК Доставка</option>
+                </select>
+              </div>
+              <div class="order__details-wrapper">
+                <h2 class="order__headline">Твой заказ</h2>
+                <div class="order__details-content-wrapper">
+                </div>
+                <div class="order__details-price-wrapper">
+                  <div class="order__details-price-wrapper-div">
+                    <span class="order__details-price-subtotal-span">Предварительная стоимость</span>
+                    <span class="order__details-price-subtotal"></span>
+                  </div>
+                  <div class="order__details-price-wrapper-div">
+                    <span class="order__details-price-subtotal-span">Стоимост доставки</span>
+                    <span class="order__details-price-delivery"></span>
+                  </div>
+                  <div class="order__details-price-wrapper-div">
+                    <span class="order__details-price-subtotal-span">Итого</span>
+                    <span class="order__details-price-total"></span>
+                  </div>
+                </div>
+                <div class="order__details-payment-wrapper">
+                  
+                </div>
+                <button class="order__form-button-submit">Подтвердить заказ</button>
+              </div>
             </form>
-          </div>
-          <div class="order__details-wrapper">
-            <h2 class="order__headline">Твой заказ</h2>
-            <div class="order__details-content-wrapper">
-              <p class="order__details-content-name">Футболка Сердце x <strong class="order__details-content-quantity">1</strong></p>
-              <span class="order__details-content-price">1999</span>
-            </div>
-            <div class="order__details-price-wrapper">
-              <div class="order__details-price-wrapper-div">
-                <span class="order__details-price-subtotal-span">Предварительная стоимость</span>
-                <span class="order__details-price-subtotal">1999</span>
-              </div>
-              <div class="order__details-price-wrapper-div">
-                <span class="order__details-price-subtotal-span">Стоимост доставки</span>
-                <span class="order__details-price-delivery">459</span>
-              </div>
-              <div class="order__details-price-wrapper-div">
-                <span class="order__details-price-subtotal-span">Итого</span>
-                <span class="order__details-price-total"></span>
-              </div>
-            </div>
-            <div class="order__details-payment-wrapper">
+          <!-- </div> -->
 
-            </div>
-            <button class="order__form-button-submit">Подтвердить заказ</button>
-          </div>
         </div>
       </div>
       <div class="order__overlay"></div>
@@ -107,7 +108,15 @@
         </ul>
     </div>
 </footer>
-  <!-- <script src="./scripts/utils.js"></script> -->
+  <template id="order-detail">
+    <div class="order__details-content-detail">
+      <div class="">
+        <p class="order__details-content-detail-para"></p><span> X </span><strong class="order__details-content-quantity"></strong>
+      </div>
+      <span class="order__details-content-detail-span"></span>
+    </div>
+  </template>
+  <script src="./scripts/utilsOrders.js"></script>
   <script src="./scripts/Api.js"></script>
   <script src="./scripts/orderPage.js"></script>
 </body>

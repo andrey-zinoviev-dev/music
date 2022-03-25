@@ -1,6 +1,7 @@
 .order__form {
+  width: 100%;
   display: flex;
-  flex-direction: column;
+  /* flex-direction: column; */
   min-width: 500px;
   min-height: 350px;
   justify-content: space-between;
