@@ -1,5 +1,6 @@
 mainApi.loadInitialCookie()
 .then((data) => {
+    console.log(data);
     if(!data.cart) {
         emptyCartListElement.classList.remove('cart__list-element_hidden');
         return;
