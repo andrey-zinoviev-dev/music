@@ -6,6 +6,7 @@
   width: 100%;
   cursor: pointer;
   transition: color 0.45s ease-in-out;
+  font-size: 18px;
 }
 
 .cart__close-wrapper-button:hover {
