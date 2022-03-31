@@ -16,16 +16,23 @@
     <header class="header">
         <div class="container container_header">
             <img class="header__logo" src="./images/neverlove_title.png" alt="">
-            <nav class="header__menu">
-                <a href="" class="header__menu-link">Главная</a>
-                <a href="" class="header__menu-link">Мерч</a>
-                <a href="" class="header__menu-link">Видео</a>
-                <button class="header__cart-button">
-                    <i class="header__cart-button-logo fa-solid fa-cart-arrow-down"></i>
-                    <span class="header__cart-button-span">0</span>
-                </button>
-            </nav>
+            <div>
+                <nav class="header__menu">
+                    <a href="" class="header__menu-link">Главная</a>
+                    <a href="" class="header__menu-link">Мерч</a>
+                    <a href="" class="header__menu-link">Видео</a>
+                    <button class="header__cart-button">
+                        <i class="header__cart-button-logo fa-solid fa-cart-arrow-down"></i>
+                        <span class="header__cart-button-span">0</span>
+                    </button>
+                </nav>      
+            </div>
+
+            <button class="header__burger-button">
+                <i class="header__burger-button-logo fa-solid fa-bars"></i>
+            </button>
         </div>
+        <div class="header__overlay"></div>
     </header>
     <main class="content">
         <section class="main">
@@ -53,7 +60,7 @@
                         на афтепати будет мясо,
                         но ты не жалеешь сил!'
                     </span>
-                    <span class="interlude__span interlude__span_signature"> - Ярослав</span>
+                    <!-- <span class="interlude__span interlude__span_signature"> - Ярослав</span> -->
                 </div>
             </div>
         </section>
@@ -101,7 +108,7 @@
             </ul>
         </div>
     </footer>
-    <section class="popup popup_good">
+    <section class="popup popup_good popup_good-select">
         <div class="container container_flex-centered container_popup-good">
             <button class="popup__close"><i class="popup__close-logo fa-solid fa-circle-xmark"></i></button>
             <img class="popup__image" src="" alt="">
@@ -146,7 +153,7 @@
             <!-- <button class="cart__button-submit">Оформить заказ
                 
             </button> -->
-            <a href="/order.html" class="cart__button-submit">Оформить заказ</a>
+            <a href="#" class="cart__button-submit">Оформить заказ</a>
         </div>
         <div class="cart__overlay"></div>
     </section>
@@ -176,6 +183,7 @@
             </div>
         </li>
     </template>
+    <!-- <script src="https://cdn.jsdelivr.net/npm/localstorage-slim"></script> -->
     <script src="./scripts/utilsIndex.js"></script>
     <script src="./scripts/Api.js"></script>
     <script src="./scripts/index.js"></script>

@@ -1,5 +1,5 @@
-console.log('order page loaded');
-console.log(JSON.parse(localStorage.getItem('cart')));
+// mainApi.getCartDetailsOnLoad
+
 // mainApi.getCartDetailsOnLoad()
 // .then((data) => {
 //   cartOrdersQuantity.textContent = data.length;

@@ -1,6 +1,49 @@
+//set cookies for cart
+// mainApi.setCartCookie()
+// .then((data) => {
+//     console.log(data);
+//     // if(data.message) {
+//     //     console.log('cookie is set by server');
+//     //     emptyCartListElement.classList.remove('cart__list-element_hidden');
+//     //     return;
+//     // }
+//     // //goodsArray test
+//     // console.log('check cookie');
+//     // goodsToAddToCart = data;
+//     // cartOrdersQuantity.textContent = `${goodsToAddToCart.length}`;
+    
+
+//     // goodsToAddToCart.forEach((goodToAdd) => {
+//     //     const liToInsert = generateFromTemplate(liTempalte, '.cart__list-element');
+//     //     const removeLiFromListButton = liToInsert.querySelector('.cart__list-element-button-close');
+//     //     emptyCartListElement.classList.add('cart__list-element_hidden');
+
+//     //     removeLiFromListButton.addEventListener('click', () => {
+//     //         goodsToAddToCart.pop(goodToAdd);
+//     //         if(goodsToAddToCart.length <= 0) {
+//     //             emptyCartListElement.classList.remove('cart__list-element_hidden');
+//     //         };
+            
+//     //         cartOrdersQuantity.textContent = `${goodsToAddToCart.length}`;
+//     //         cartList.removeChild(liToInsert);
+//     //     });
+
+//     //     liToInsert.querySelector('.cart__list-element-img').src = goodToAdd.pic;
+//     //     liToInsert.querySelector('.cart__list-element-name').textContent = goodToAdd.name;
+//     //     liToInsert.querySelector('.cart__list-element-quantity').textContent = `Количество ${goodToAdd.quantity}`;
+//     //     liToInsert.querySelector('.cart__list-element-price').textContent = `${goodToAdd.price}`;
+//     //     cartList.append(liToInsert);
+
+//     //     // console.log(goodToAdd);
+//     // })
+//     // // goodsToAddToCart.forEach(() >)
+//     // return;
+//     // console.log(goodsToAddToCart, data);
+//     // return goodsToAddToCart = data;
+// });
+
 mainApi.loadInitialCookie()
 .then((data) => {
-    console.log(data);
     if(!data.cart) {
         emptyCartListElement.classList.remove('cart__list-element_hidden');
         return;
@@ -21,7 +64,7 @@ mainApi.loadInitialCookie()
                  emptyCartListElement.classList.remove('cart__list-element_hidden');
             };
             
-             cartOrdersQuantity.textContent = `${goodsToAddToCart.length}`;
+            cartOrdersQuantity.textContent = `${goodsToAddToCart.length}`;
             cartList.removeChild(liToInsert);
         });
 
@@ -30,6 +73,7 @@ mainApi.loadInitialCookie()
         liToInsert.querySelector('.cart__list-element-quantity').textContent = `Количество ${good.quantity}`;
         liToInsert.querySelector('.cart__list-element-price').textContent = `${good.price}`;
         cartList.append(liToInsert);
+
     });
 });
 
@@ -165,7 +209,6 @@ goodPopupOrderButton.addEventListener('click', (evt) => {
     evt.preventDefault();
 
     goodsToAddToCart.push(objectToSend);
-    console.log(goodsToAddToCart);
 
     cartOrdersQuantity.textContent = `${goodsToAddToCart.length}`;
 
@@ -191,26 +234,25 @@ goodPopupOrderButton.addEventListener('click', (evt) => {
     liToInsert.querySelector('.cart__list-element-price').textContent = `${objectToSend.price}`;
     cartList.append(liToInsert);
 
-    //change cart details
-    mainApi.sendCartDetails(objectToSend, localStorage.getItem('cart'))
-    .then((data) => {        
-        console.log(data);
-        // if(localStorage.getItem('cart') === null) {
-        //     return localStorage.setItem('cart', data);
-        // }
-        // localStorage.clear();
-        // return localStorage.setItem('cart', JSON.stringify(data));
-        // return goodPopupSection.classList.remove('popup_opened');
-    });
+    setTimeout(() => {
+        goodPopupSection.classList.remove('popup_opened');
+    }, 1200);
+    // //change cart details
+    // mainApi.sendCartDetails(objectToSend, localStorage.getItem('cart'))
+    // .then((data) => {        
+    //     console.log(data);
+    //     // if(localStorage.getItem('cart') === null) {
+    //     //     return localStorage.setItem('cart', data);
+    //     // }
+    //     // localStorage.clear();
+    //     // return localStorage.setItem('cart', JSON.stringify(data));
+    //     // return goodPopupSection.classList.remove('popup_opened');
+    // });
 });
 
 //place order event
 cartSubmitButton.addEventListener('click',  (evt) => {
     // evt.preventDefault();
-    // getCartDetailsOnLoad()
-    // .then((data) => {
-    //     console.log(data);
-    // });
     // mainApi.sendCartDetails(goodsToAddToCart)
     // .then((data) => {
     //     console.log(data);
@@ -219,5 +261,13 @@ cartSubmitButton.addEventListener('click',  (evt) => {
     // console.log('send data and open order summary page');
 });
 
+headerSandwichButton.addEventListener('click', () => {
+    headerNavMenu.classList.toggle('header__menu_burger');
+    headerOverlay.classList.toggle('header__overlay_visible');
+});
+
 observer.observe(interludeSection);
 goodsObserver.observe(goodsSection);
+resizeObserver.observe(goodsSection);
+resizeObserver.observe(goodPopupSection);
+resizeObserver.observe(headerSection);

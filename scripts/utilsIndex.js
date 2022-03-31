@@ -138,9 +138,14 @@ const goods = [
 
 //selectors
 const headerSection = document.querySelector('.header');
+const headerContainer = headerSection.querySelector('.container');
+const headerNavMenu = headerSection.querySelector('.header__menu');
+const headerSandwichButton = headerSection.querySelector('.header__burger-button');
+const headerOverlay = headerSection.querySelector('.header__overlay');
 const cartButton = headerSection.querySelector('.header__cart-button');
 const cartOrdersQuantity = headerSection.querySelector('.header__cart-button-span');
 const mainContent = document.querySelector('.content');
+const headerBurgerMenuButton = headerSection.querySelector('.header__burger-button');
 const landingButton = document.querySelector('.main__button');
 const goodsSection = document.querySelector('.goods');
 const goodsSectionContainer = goodsSection.querySelector('.container');
@@ -149,6 +154,7 @@ const interludeSection = document.querySelector('.interlude');
 const interludeHeadline = interludeSection.querySelector('.interlude__headline');
 const popups = Array.from(document.querySelectorAll('.popup'));
 const goodPopupSection = document.querySelector('.popup_good');
+const goodPopupContainer = goodPopupSection.querySelector('.container');
 const goodPopupHeadline = goodPopupSection.querySelector('.popup__headline');
 const goodPopupForm = goodPopupSection.querySelector('.popup__size-form');
 const elementsToSend = Array.from(goodPopupForm.querySelectorAll('.data-to-send'));
@@ -169,6 +175,7 @@ const goodsCards = [];
 let goodElement;
 let cartQuantity = +cartOrdersQuantity.textContent;
 let goodsToAddToCart = [];
+const domElementsToObserveWidthResize = [goodsSectionContainer, goodPopupContainer];
 
 //templates
 const goodTemplate = document.querySelector('#good');
@@ -227,6 +234,32 @@ const goodsObserver = new IntersectionObserver((entries) => {
   })
 }, {
   rootMargin: "0px 0px -95% 0px",
+});
+
+//resize observer
+const resizeObserver = new ResizeObserver((entries) => {
+  entries.forEach((entry, i , array) => {
+    if(Array.from(entry.target.classList).includes('goods')) {
+      entry.contentRect.width < 1280 ? goodsSectionContainer.classList.remove('container_low-width') : goodsSectionContainer.classList.add('container_low-width');
+    } else if(Array.from(entry.target.classList).includes('popup_good')) {
+      entry.contentRect.width < 1440 ? goodPopupContainer.classList.remove('container_popup-good') : goodPopupContainer.classList.add('container_popup-good');
+      entry.contentRect.width < 1280 ? goodPopupContainer.classList.remove('container_flex-centered') : goodPopupContainer.classList.add('container_flex-centered');
+    } 
+    else if (Array.from(entry.target.classList).includes('header')) {
+      entry.contentRect.width < 767 ? headerBurgerMenuButton.classList.add('header__burger-button_enabled') : headerBurgerMenuButton.classList.remove('header__burger-button_enabled');
+      // entry.contentRect.width < 767 ? headerNavMenu.classList.add('header__menu_burger') : headerNavMenu.classList.remove('header__menu_burger');
+      // entry.contentRect.width < 1024 ? headerNavMenu.classList.add('header__menu_burger') : headerNavMenu.classList.remove('header__menu_burger');
+      // entry.contentRect.width < 767 ? headerContainer.classList.add('fixed-width-class') : headerContainer.classList.remove('fixed-width-class');
+      
+    }
+    // if(Array.from)
+    // array[0].contentRect.width < 1024 ? goodsSectionContainer.classList.remove('container_low-width') : entries[0].target.classList.add('container_low-width');
+    // array[1].contentRect.width < 1440 ? goodPopupContainer.classList.remove('container_popup-good') : goodPopupContainer.classList.add('container_popup-good');
+  })
+  // console.log(entries[0].contentRect.width, entries[1].contentRect.width);
+  // entries[0].contentRect.width < 1024 ? goodsSectionContainer.classList.remove('container_low-width') : entries[0].target.classList.add('container_low-width');
+  // // console.log(entries[1].contentRect.width);
+  // entries[1].contentRect.width < 1440 ? goodPopupContainer.classList.remove('container_popup-good') : goodPopupContainer.classList.add('container_popup-good');
 });
 
 const showSelectValue = function(element, good) {

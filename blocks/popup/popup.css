@@ -1,6 +1,7 @@
 @import url(./__overlay/popup__overlay.css);
 @import url(./__close/popup__close.css);
 @import url(./__close-logo/popup__close-logo.css);
+@import url(./__image/popup__image.css);
 @import url(./__text-wrapper/popup__text-wrapper.css);
 @import url(./__size-form/popup__size-form.css);
 @import url(./__size-form-quantity-wrapper/popup__size-form-quantity-wrapper.css);

@@ -8,10 +8,11 @@
   outline: none;
   color: white;
   cursor: pointer;
+  box-sizing: border-box;
 }
 
 .order__form-input::placeholder {
-  color: white;
+  color: rgba(255, 255, 255, 0.65);
 }
 
 .order__form-input:focus {

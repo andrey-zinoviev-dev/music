@@ -12,6 +12,12 @@
 .header__menu-link:not(:last-child) {
     margin-right: 20px;
 }
+
+@media screen and (max-width: 767px) {
+    .header__menu-link {
+        color: #ff051a;
+    }
+}
 /* .header__menu-link::before {
     display: block;
     content: "";

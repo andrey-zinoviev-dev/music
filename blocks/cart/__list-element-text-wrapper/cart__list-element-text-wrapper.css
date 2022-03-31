@@ -5,3 +5,11 @@
   width: 100%;
   text-align: left;
 }
+
+@media screen and (max-width: 767px) {
+  .cart__list-element-text-wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+  }
+}

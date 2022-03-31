@@ -15,3 +15,9 @@
     background-size: cover;
     position: relative;
 }
+
+@media screen and (max-width: 767px) {
+    .main {
+        background-position: bottom;
+    }
+}
