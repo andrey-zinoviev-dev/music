@@ -10,7 +10,7 @@
 @import url(./__overlay/goods__overlay.css);
 .goods {
   min-height: 100vh;
-  padding: 5% 0;
+  padding: 95px 0 0 0;
   /* background-color: black; */
   /* background-image: url(../../images/neverlove_gig.jpg); */
   background-image: url(../../images/neverlove-kisses.png);
