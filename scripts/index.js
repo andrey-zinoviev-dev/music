@@ -234,20 +234,23 @@ goodPopupOrderButton.addEventListener('click', (evt) => {
     liToInsert.querySelector('.cart__list-element-price').textContent = `${objectToSend.price}`;
     cartList.append(liToInsert);
 
-    setTimeout(() => {
-        goodPopupSection.classList.remove('popup_opened');
-    }, 1200);
-    // //change cart details
-    // mainApi.sendCartDetails(objectToSend, localStorage.getItem('cart'))
-    // .then((data) => {        
-    //     console.log(data);
-    //     // if(localStorage.getItem('cart') === null) {
-    //     //     return localStorage.setItem('cart', data);
-    //     // }
-    //     // localStorage.clear();
-    //     // return localStorage.setItem('cart', JSON.stringify(data));
-    //     // return goodPopupSection.classList.remove('popup_opened');
-    // });
+    // setTimeout(() => {
+    //     goodPopupSection.classList.remove('popup_opened');
+    // }, 1200);
+    //change cart details
+    mainApi.sendCartDetails(objectToSend, localStorage.getItem('cart'))
+    .then((data) => {        
+        // console.log(data);
+        // if(localStorage.getItem('cart') === null) {
+        //     return localStorage.setItem('cart', data);
+        // }
+        // localStorage.clear();
+        // return localStorage.setItem('cart', JSON.stringify(data));
+        // return goodPopupSection.classList.remove('popup_opened');
+        setTimeout(() => {
+            goodPopupSection.classList.remove('popup_opened');
+        }, 500);
+    });
 });
 
 //place order event
