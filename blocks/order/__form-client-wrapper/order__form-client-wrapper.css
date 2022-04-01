@@ -1,5 +1,14 @@
 .order__form-client-wrapper {
   display: flex;
+  justify-content: flex-start;
   align-items: center;
   flex-wrap: wrap;
+  max-width: 600px;
+}
+
+@media screen and (max-width: 767px) {
+  .order__form-client-wrapper {
+    max-width: 320px;
+    flex-direction: column;
+  }
 }

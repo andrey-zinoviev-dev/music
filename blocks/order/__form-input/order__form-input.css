@@ -18,3 +18,15 @@
 .order__form-input:focus {
   border-bottom: 1px solid #9aeaec;
 }
+
+@media screen and (max-width: 1023px) {
+  .order__form-input {
+    max-width: 225px;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .order__form-input {
+    max-width: 320px;
+  }
+}

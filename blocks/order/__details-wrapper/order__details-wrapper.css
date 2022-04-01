@@ -1,3 +1,9 @@
 .order__details-wrapper {
-  min-width: 500px;
+  min-width: 400px;
+}
+
+@media screen and (max-width: 1023px) {
+  .order__details-wrapper {
+    min-width: 250px;
+  }
 }

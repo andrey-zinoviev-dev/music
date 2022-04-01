@@ -27,52 +27,73 @@
   <main class="content">
     <section class="order">
       <div class="container">
-        <div class="order__wrapper">
+        <!-- <div class="order__wrapper"> -->
           <!-- <div class="order__billing-wrapper"> -->
             <!-- <h2 class="order__headline">Адреса с оплатой</h2> -->
-            <form class="order__form" action="/" method="POST">
-              <div >
-                <input class="order__form-input" type="text" name="family-name" placeholder="Фамилия" required autocomplete="off">
-                <input class="order__form-input" type="text" name="first-name" placeholder="Имя" required autocomplete="off">
-                <input class="order__form-input" type="text" name="middle-name" placeholder="Отчество" required autocomplete="off">
-                <input class="order__form-input" type="text" name="country" placeholder="Страна" required autocomplete="off">
-                <input class="order__form-input" type="text" name="address" placeholder="Адрес доставки" required autocomplete="off">
-                <input class="order__form-input" type="tel" name="phone" placeholder="Телефон" required autocomplete="off">
-                <input class="order__form-input" type="email" name="email" placeholder="Электронная почта" required autocomplete="off">
-                <select class="order__form-delivery-select" required placeholder="Служба доставки">
-                  <option class="order__form-delivery-select-option" value="">Выберите службу доставки</option>
-                  <option class="order__form-delivery-select-option" value="419">EMS Доставка</option>
-                  <option class="order__form-delivery-select-option" value="799">Почта России</option>
-                  <option class="order__form-delivery-select-option" value="359">СДЕК Доставка</option>
-                </select>
-              </div>
-              <div class="order__details-wrapper">
-                <h2 class="order__headline">Твой заказ</h2>
-                <div class="order__details-content-wrapper">
-                </div>
-                <div class="order__details-price-wrapper">
-                  <div class="order__details-price-wrapper-div">
-                    <span class="order__details-price-subtotal-span">Предварительная стоимость</span>
-                    <span class="order__details-price-subtotal"></span>
-                  </div>
-                  <div class="order__details-price-wrapper-div">
-                    <span class="order__details-price-subtotal-span">Стоимост доставки</span>
-                    <span class="order__details-price-delivery"></span>
-                  </div>
-                  <div class="order__details-price-wrapper-div">
-                    <span class="order__details-price-subtotal-span">Итого</span>
-                    <span class="order__details-price-total"></span>
-                  </div>
-                </div>
-                <div class="order__details-payment-wrapper">
-                  
-                </div>
-                <button class="order__form-button-submit">Подтвердить заказ</button>
-              </div>
-            </form>
-          <!-- </div> -->
 
-        </div>
+          <!-- </div> -->
+        <!-- </div> -->
+        <form class="order__form" action="/" method="POST">
+          <div class="order__form-client-wrapper">
+            <div class="order__form-input-wrapper">
+              <input id="surname" class="order__form-input" type="text" name="family-name" placeholder="Фамилия" required autocomplete="off" minlength="4">
+              <label class="order__form-label" for="surname"></label>
+            </div>
+            <div class="order__form-input-wrapper">
+              <input id="name" class="order__form-input" type="text" name="first-name" placeholder="Имя" required autocomplete="off" minlength="4">
+              <label class="order__form-label" for="name"></label>
+            </div>
+            <div class="order__form-input-wrapper">
+              <input id="middle-name" class="order__form-input" type="text" name="middle-name" placeholder="Отчество" required autocomplete="off" minlength="4">
+              <label class="order__form-label" for="middle-name"></label>
+            </div>
+            <div class="order__form-input-wrapper">
+              <input id="country" class="order__form-input" type="text" name="country" placeholder="Страна" required autocomplete="off">
+              <label class="order__form-label" for="country"></label>
+            </div>
+            <div class="order__form-input-wrapper">
+              <input id="address" class="order__form-input" type="text" name="address" placeholder="Адрес доставки" required autocomplete="off">
+              <label class="order__form-label" for="address"></label>
+            </div>
+            <div class="order__form-input-wrapper">
+              <input id="phone" class="order__form-input" type="tel" name="phone" placeholder="+7 (123) 456 78 90" required autocomplete="off" pattern="\+[0-9]{1} \([0-9]{3}\) [0-9]{3} [0-9]{2} [0-9]{2}">
+              <label class="order__form-label" for="phone"></label>
+            </div>
+            <div class="order__form-input-wrapper">
+              <input id="email" class="order__form-input" type="email" name="email" placeholder="Электронная почта" required autocomplete="off">
+              <label class="order__form-label" for="email"></label>
+            </div>
+            <select class="order__form-delivery-select" required placeholder="Служба доставки">
+              <option class="order__form-delivery-select-option" value="">Выберите службу доставки</option>
+              <option class="order__form-delivery-select-option" value="419">EMS Доставка</option>
+              <option class="order__form-delivery-select-option" value="799">Почта России</option>
+              <option class="order__form-delivery-select-option" value="359">СДЕК Доставка</option>
+            </select>
+          </div>
+          <div class="order__details-wrapper">
+            <h2 class="order__headline">Твой заказ</h2>
+            <div class="order__details-content-wrapper">
+            </div>
+            <div class="order__details-price-wrapper">
+              <div class="order__details-price-wrapper-div">
+                <span class="order__details-price-subtotal-span">Предварительная стоимость</span>
+                <span class="order__details-price-subtotal"></span>
+              </div>
+              <div class="order__details-price-wrapper-div">
+                <span class="order__details-price-subtotal-span">Стоимост доставки</span>
+                <span class="order__details-price-delivery"></span>
+              </div>
+              <div class="order__details-price-wrapper-div">
+                <span class="order__details-price-subtotal-span">Итого</span>
+                <span class="order__details-price-total"></span>
+              </div>
+            </div>
+            <div class="order__details-payment-wrapper">
+              
+            </div>
+            <button class="order__form-button-submit">Подтвердить заказ</button>
+          </div>
+        </form>
       </div>
       <div class="order__overlay"></div>
     </section>

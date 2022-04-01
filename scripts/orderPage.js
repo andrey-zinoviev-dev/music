@@ -19,6 +19,8 @@
 orderFormInputs.forEach((input) => {
   input.addEventListener('input', () => {
     formDataToSend[input.name] = input.value;
+    checkInputIfValid(input);
+    changeFormButtonDisability(orderFormInputs);
   });
 })
 
@@ -30,5 +32,5 @@ deliverySelect.addEventListener('change', (evt) => {
 
 orderFormSubmitButton.addEventListener('click', (evt) => {
   evt.preventDefault();
-  // console.log(formDataToSend);
+  console.log(formDataToSend);
 });
