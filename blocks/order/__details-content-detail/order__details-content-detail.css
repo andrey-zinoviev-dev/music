@@ -5,3 +5,9 @@
   justify-content: space-between;
   min-height: 75px;
 }
+
+@media screen and (max-width: 767px) {
+  .order__details-content-detail {
+    max-width: 320px;
+  }
+}
