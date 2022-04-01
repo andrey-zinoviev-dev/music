@@ -20,7 +20,7 @@ mainApi.loadInitialCookie()
 .then((data) => {
   // cartOrdersQuantity.textContent = data.length;
   let preFinalSum = 0;
-  data.forEach((cartElement) => {
+  JSON.parse(data.cart).forEach((cartElement) => {
     const cartElementFromTemplate = generateFromTemplate(cartElement, '.order__details-content-detail');
     cartElementFromTemplate.querySelector('.order__details-content-detail-para').textContent = cartElement.name;
     cartElementFromTemplate.querySelector('.order__details-content-quantity').textContent = cartElement.quantity;
