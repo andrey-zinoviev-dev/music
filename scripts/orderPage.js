@@ -18,8 +18,14 @@
 
 mainApi.loadInitialCookie()
 .then((data) => {
-  console.log(data);
-  
+  data.forEach((cartElement) => {
+    const cartElementFromTemplate = generateFromTemplate(cartDetailTemplate, '.order__details-content-detail');
+    cartElementFromTemplate.querySelector('.order__details-content-detail-para').textContent = element.name;
+    cartElementFromTemplate.querySelector('.order__details-content-quantity').textContent = element.quantity;
+    cartElementFromTemplate.querySelector('.order__details-content-detail-span').textContent = element.price;
+    orderDetailsWrapper.append(cartElementFromTemplate);
+    preFinalSum = preFinalSum + +element.price;
+  });
 });
 
 orderFormInputs.forEach((input) => {
