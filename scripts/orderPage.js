@@ -16,9 +16,10 @@
 //   orderSubtotalPriceSpan.textContent = preFinalSum;
 // });
 
-mainApi.getCartDetailsOnLoad()
+mainApi.loadInitialCookie()
 .then((data) => {
   console.log(data);
+  
 });
 
 orderFormInputs.forEach((input) => {
