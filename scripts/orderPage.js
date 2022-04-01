@@ -18,14 +18,17 @@
 
 mainApi.loadInitialCookie()
 .then((data) => {
+  // cartOrdersQuantity.textContent = data.length;
+  let preFinalSum = 0;
   data.forEach((cartElement) => {
-    const cartElementFromTemplate = generateFromTemplate(cartDetailTemplate, '.order__details-content-detail');
-    cartElementFromTemplate.querySelector('.order__details-content-detail-para').textContent = element.name;
-    cartElementFromTemplate.querySelector('.order__details-content-quantity').textContent = element.quantity;
-    cartElementFromTemplate.querySelector('.order__details-content-detail-span').textContent = element.price;
+    const cartElementFromTemplate = generateFromTemplate(cartElement, '.order__details-content-detail');
+    cartElementFromTemplate.querySelector('.order__details-content-detail-para').textContent = cartElement.name;
+    cartElementFromTemplate.querySelector('.order__details-content-quantity').textContent = cartElement.quantity;
+    cartElementFromTemplate.querySelector('.order__details-content-detail-span').textContent = cartElement.price;
     orderDetailsWrapper.append(cartElementFromTemplate);
     preFinalSum = preFinalSum + +element.price;
   });
+  orderSubtotalPriceSpan.textContent = preFinalSum;
 });
 
 orderFormInputs.forEach((input) => {
