@@ -26,7 +26,7 @@ mainApi.loadInitialCookie()
     cartElementFromTemplate.querySelector('.order__details-content-quantity').textContent = cartElement.quantity;
     cartElementFromTemplate.querySelector('.order__details-content-detail-span').textContent = cartElement.price;
     orderDetailsWrapper.append(cartElementFromTemplate);
-    preFinalSum = preFinalSum + +element.price;
+    preFinalSum = preFinalSum + +cartElement.price;
   });
   orderSubtotalPriceSpan.textContent = preFinalSum;
 });
