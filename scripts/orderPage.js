@@ -21,7 +21,7 @@ mainApi.loadInitialCookie()
   // cartOrdersQuantity.textContent = data.length;
   let preFinalSum = 0;
   JSON.parse(data.cart).forEach((cartElement) => {
-    const cartElementFromTemplate = generateFromTemplate(cartElement, '.order__details-content-detail');
+    const cartElementFromTemplate = generateFromTemplate(cartDetailTemplate, '.order__details-content-detail');
     cartElementFromTemplate.querySelector('.order__details-content-detail-para').textContent = cartElement.name;
     cartElementFromTemplate.querySelector('.order__details-content-quantity').textContent = cartElement.quantity;
     cartElementFromTemplate.querySelector('.order__details-content-detail-span').textContent = cartElement.price;

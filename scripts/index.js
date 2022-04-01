@@ -73,7 +73,7 @@ mainApi.loadInitialCookie()
         liToInsert.querySelector('.cart__list-element-quantity').textContent = `Количество ${good.quantity}`;
         liToInsert.querySelector('.cart__list-element-price').textContent = `${good.price}`;
         cartList.append(liToInsert);
-
+        
     });
 });
 
