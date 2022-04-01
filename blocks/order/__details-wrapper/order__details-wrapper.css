@@ -5,5 +5,6 @@
 @media screen and (max-width: 1023px) {
   .order__details-wrapper {
     min-width: 250px;
+    margin: 15% 0 0 0;
   }
 }
