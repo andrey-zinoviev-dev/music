@@ -16,6 +16,11 @@
 //   orderSubtotalPriceSpan.textContent = preFinalSum;
 // });
 
+mainApi.getCartDetailsOnLoad()
+.then((data) => {
+  console.log(data);
+});
+
 orderFormInputs.forEach((input) => {
   input.addEventListener('input', () => {
     formDataToSend[input.name] = input.value;
