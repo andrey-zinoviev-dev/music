@@ -86,7 +86,7 @@ class Api {
   };
 
   deleteFromCart(cartElement) {
-    return fetch(`${this.url}deleteFromCart`, {
+    return fetch(`${this.url}/deleteFromCart`, {
       method: "POST",
       headers: this.headers,
       credentials: 'include',
@@ -97,7 +97,7 @@ class Api {
     .then(this._handleResponse)
     .catch(this._handleError);
   };
-  
+
 };
 
 const mainApi = new Api('https://api.neverlovemusic.store', {
