@@ -33,6 +33,9 @@ mainApi.loadInitialCookie()
 
 orderFormInputs.forEach((input) => {
   input.addEventListener('input', () => {
+    if(input.name === 'phone') { 
+      input.value = stylePhoneInput(input);
+    }
     formDataToSend[input.name] = input.value;
     checkInputIfValid(input);
     changeFormButtonDisability(orderFormInputs);
