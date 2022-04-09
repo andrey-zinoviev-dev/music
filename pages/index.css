@@ -33,5 +33,6 @@
 @import url(../blocks/cart/_opened/cart_opened.css);
 @import url(../blocks/cart/__list-element/_empty/cart__list-element_empty-cart.css);
 @import url(../blocks/cart/__list-element/_hidden/cart__list-element_hidden.css);
+@import url(../blocks/cart/__button-submit/_disabled/cart__button-submit_disabled.css);
 @import url(../blocks/order/order.css);
 @import url(../blocks/order/__form-button-submit/_enabled/order__form-button-submit_enabled.css);

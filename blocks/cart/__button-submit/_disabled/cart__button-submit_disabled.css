@@ -1,0 +1,4 @@
+.cart__button-submit_disabled {
+  pointer-events: none;
+  opacity: 0.5;
+}

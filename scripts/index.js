@@ -48,7 +48,7 @@ mainApi.loadInitialCookie()
         emptyCartListElement.classList.remove('cart__list-element_hidden');
         return;
     };
-    console.log(JSON.parse(data.cart));
+    cartSubmitAnchor.classList.remove('cart__button-submit_disabled');
     goodsToAddToCart = JSON.parse(data.cart);
     // console.log(goodsToAddToCart);
     cartOrdersQuantity.textContent = `${goodsToAddToCart.length}`;
@@ -61,7 +61,8 @@ mainApi.loadInitialCookie()
         removeLiFromListButton.addEventListener('click', () => {
             goodsToAddToCart.pop(goodToAdd);
             if(goodsToAddToCart.length <= 0) {
-                 emptyCartListElement.classList.remove('cart__list-element_hidden');
+                cartSubmitAnchor.classList.add('cart__button-submit_disabled');
+                emptyCartListElement.classList.remove('cart__list-element_hidden');
             };
             
             cartOrdersQuantity.textContent = `${goodsToAddToCart.length}`;
@@ -198,6 +199,7 @@ goodPopupQuantityInput.addEventListener('input', (evt) => {
 
 //add clothes to cart event
 goodPopupOrderButton.addEventListener('click', (evt) => {
+    evt.preventDefault();
     const objectToSend = {};
     objectToSend.pic = goodElement.path;
     objectToSend.name = goodElement.name;
@@ -206,50 +208,56 @@ goodPopupOrderButton.addEventListener('click', (evt) => {
         objectToSend[element.name] = element.value;   
     });
 
-    evt.preventDefault();
-
-    goodsToAddToCart.push(objectToSend);
-
-    cartOrdersQuantity.textContent = `${goodsToAddToCart.length}`;
-
-    emptyCartListElement.classList.add('cart__list-element_hidden');
-
-    //main info to send to cart
-    const liToInsert = generateFromTemplate(liTempalte, '.cart__list-element');
-    const removeLiFromListButton = liToInsert.querySelector('.cart__list-element-button-close');
-    removeLiFromListButton.addEventListener('click', () => {
-        goodsToAddToCart.pop(objectToSend);
-        if(goodsToAddToCart.length <= 0) {
-            emptyCartListElement.classList.remove('cart__list-element_hidden');
-        };
-
-        cartOrdersQuantity.textContent = `${goodsToAddToCart.length}`;
-        cartList.removeChild(liToInsert);
-
-    });
-
-    liToInsert.querySelector('.cart__list-element-img').src = objectToSend.pic;
-    liToInsert.querySelector('.cart__list-element-name').textContent = objectToSend.name;
-    liToInsert.querySelector('.cart__list-element-quantity').textContent = `Количество ${objectToSend.quantity}`;
-    liToInsert.querySelector('.cart__list-element-price').textContent = `${objectToSend.price}`;
-    cartList.append(liToInsert);
-
-    // setTimeout(() => {
-    //     goodPopupSection.classList.remove('popup_opened');
-    // }, 1200);
-    //change cart details
-    mainApi.sendCartDetails(objectToSend, localStorage.getItem('cart'))
-    .then((data) => {        
+    return mainApi.sendCartDetails(objectToSend)
+    .then((data) => {
+        cartSubmitAnchor.classList.remove('cart__button-submit_disabled');
         // console.log(data);
-        // if(localStorage.getItem('cart') === null) {
-        //     return localStorage.setItem('cart', data);
-        // }
-        // localStorage.clear();
-        // return localStorage.setItem('cart', JSON.stringify(data));
-        // return goodPopupSection.classList.remove('popup_opened');
-        setTimeout(() => {
-            goodPopupSection.classList.remove('popup_opened');
-        }, 500);
+        // goodsToAddToCart.push(objectToSend);
+        const cartContents = Array.from(cartList.children);
+        cartContents.forEach((cartContent) => {
+            cartList.removeChild(cartContent);
+        });
+        // cartContents.forEach((child) => {
+        //     cartList
+        // })
+        goodsToAddToCart = data;
+
+        data.forEach((good) => {
+            const liToInsert = generateFromTemplate(liTempalte, '.cart__list-element');
+            const removeLiFromListButton = liToInsert.querySelector('.cart__list-element-button-close');
+            removeLiFromListButton.addEventListener('click', () => {
+                mainApi.deleteFromCart(good)
+                .then((data) => {
+                    goodsToAddToCart = data; 
+                    
+                    if(goodsToAddToCart.length <= 0) {
+                        cartSubmitAnchor.classList.add('cart__button-submit_disabled');
+                        emptyCartListElement.classList.remove('cart__list-element_hidden');
+                        cartList.append(emptyCartListElement);
+                    };
+                    cartOrdersQuantity.textContent = `${goodsToAddToCart.length}`;
+                    cartList.removeChild(liToInsert);
+                })
+            });
+    
+            liToInsert.querySelector('.cart__list-element-img').src = good.pic;
+            liToInsert.querySelector('.cart__list-element-name').textContent = good.name;
+            liToInsert.querySelector('.cart__list-element-quantity').textContent = `Количество ${good.quantity}`;
+            liToInsert.querySelector('.cart__list-element-price').textContent = `${good.price}`;
+            cartList.append(liToInsert);
+    
+            setTimeout(() => {
+                goodPopupSection.classList.remove('popup_opened');
+            }, 1200);
+        });
+        
+        cartOrdersQuantity.textContent = `${goodsToAddToCart.length}`;
+
+        emptyCartListElement.classList.add('cart__list-element_hidden');
+
+        // setTimeout(() => {
+        //     goodPopupSection.classList.remove('popup_opened');
+        // }, 1200);
     });
 });
 
