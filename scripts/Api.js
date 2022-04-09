@@ -84,6 +84,20 @@ class Api {
       .then(this._handleResponse)
       .catch(this._handleError)
   };
+
+  deleteFromCart(cartElement) {
+    return fetch(`${this.url}deleteFromCart`, {
+      method: "POST",
+      headers: this.headers,
+      credentials: 'include',
+      body: JSON.stringify({
+        cartElement,
+      }),
+    })
+    .then(this._handleResponse)
+    .catch(this._handleError);
+  };
+  
 };
 
 const mainApi = new Api('https://api.neverlovemusic.store', {

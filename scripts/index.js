@@ -59,14 +59,16 @@ mainApi.loadInitialCookie()
         emptyCartListElement.classList.add('cart__list-element_hidden');
 
         removeLiFromListButton.addEventListener('click', () => {
-            goodsToAddToCart.pop(goodToAdd);
-            if(goodsToAddToCart.length <= 0) {
-                cartSubmitAnchor.classList.add('cart__button-submit_disabled');
-                emptyCartListElement.classList.remove('cart__list-element_hidden');
-            };
-            
-            cartOrdersQuantity.textContent = `${goodsToAddToCart.length}`;
-            cartList.removeChild(liToInsert);
+            mainApi.deleteFromCart(good)
+            .then((data) => {
+                goodsToAddToCart = data;
+                if(goodsToAddToCart.length <= 0) {
+                    cartSubmitAnchor.classList.add('cart__button-submit_disabled');
+                    emptyCartListElement.classList.remove('cart__list-element_hidden');
+                };
+                cartOrdersQuantity.textContent = `${goodsToAddToCart.length}`;
+                cartList.removeChild(liToInsert);
+            });
         });
 
         liToInsert.querySelector('.cart__list-element-img').src = good.pic;
