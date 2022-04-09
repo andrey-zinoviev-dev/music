@@ -168,7 +168,8 @@ const cartSection = document.querySelector('.cart');
 const cartSectionCloseButton = cartSection.querySelector('.cart__close-wrapper-button');
 const cartList = cartSection.querySelector('.cart__list');
 const emptyCartListElement = cartList.querySelector('.cart__list-element_empty-cart');
-const cartSubmitButton = cartSection.querySelector('.cart__button-submit');
+// const cartSubmitButton = cartSection.querySelector('.cart__button-submit');
+const cartSubmitAnchor = cartSection.querySelector('.cart__button-submit');
 
 //variables
 const goodsCards = [];
