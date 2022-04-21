@@ -1,5 +1,18 @@
-// mainApi.getCartDetailsOnLoad
+mainApi.loadInitialCookie()
+.then((data) => {
+  let preFinalSum = 0;
+  JSON.parse(data.cart).forEach((element) => {
+    preFinalSum += element.price;
+    const orderElementTemplate = generateFromTemplate(cartDetailTemplate, '.order__details-content-detail');
+    orderElementTemplate.querySelector('.order__details-content-detail-para').textContent = `${element.name} ${element.size}`;
+    orderElementTemplate.querySelector('.order__details-content-quantity').textContent = element.quantity;
+    orderElementTemplate.querySelector('.order__details-content-detail-span').textContent = element.price;
+    orderDetailsWrapper.append(orderElementTemplate);
+  });
+  orderSubtotalPriceSpan.textContent = preFinalSum;
+});
 
+changeFormButtonDisability(orderFormInputs);
 // mainApi.getCartDetailsOnLoad()
 // .then((data) => {
 //   cartOrdersQuantity.textContent = data.length;
@@ -16,31 +29,25 @@
 //   orderSubtotalPriceSpan.textContent = preFinalSum;
 // });
 
-mainApi.loadInitialCookie()
-.then((data) => {
-  // cartOrdersQuantity.textContent = data.length;
-  let preFinalSum = 0;
-  JSON.parse(data.cart).forEach((cartElement) => {
-    const cartElementFromTemplate = generateFromTemplate(cartDetailTemplate, '.order__details-content-detail');
-    cartElementFromTemplate.querySelector('.order__details-content-detail-para').textContent = cartElement.name;
-    cartElementFromTemplate.querySelector('.order__details-content-quantity').textContent = cartElement.quantity;
-    cartElementFromTemplate.querySelector('.order__details-content-detail-span').textContent = cartElement.price;
-    orderDetailsWrapper.append(cartElementFromTemplate);
-    preFinalSum = preFinalSum + +cartElement.price;
-  });
-  orderSubtotalPriceSpan.textContent = preFinalSum;
-});
-
 orderFormInputs.forEach((input) => {
   input.addEventListener('input', () => {
     if(input.name === 'phone') { 
-      input.value = stylePhoneInput(input);
+      // stylePhoneInput(input);
+      input.value = stylePhoneInput(input.value);
+      // console.log(stylePhoneInput(input.value));
     }
     formDataToSend[input.name] = input.value;
     checkInputIfValid(input);
     changeFormButtonDisability(orderFormInputs);
   });
-})
+  // if(input.name === 'phone') {
+  //   input.addEventListener('keyup', (evt) => {
+  //     // const result = stylePhoneInput(input);
+  //     // input.value = result;
+  //     input.value = stylePhoneInput(input.value);
+  //   });
+  // }
+});
 
 deliverySelect.addEventListener('change', (evt) => {
   orderDeliveryPriceSpan.textContent = evt.currentTarget.value;

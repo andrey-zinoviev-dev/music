@@ -157,7 +157,7 @@ const goodPopupSection = document.querySelector('.popup_good');
 const goodPopupContainer = goodPopupSection.querySelector('.container');
 const goodPopupHeadline = goodPopupSection.querySelector('.popup__headline');
 const goodPopupForm = goodPopupSection.querySelector('.popup__size-form');
-const elementsToSend = Array.from(goodPopupForm.querySelectorAll('.data-to-send'));
+// const elementsToSend = Array.from(goodPopupForm.querySelectorAll('.data-to-send'));
 const goodPopupSelect = goodPopupSection.querySelector('.popup__size-select');
 const spanQuantity = goodPopupSection.querySelector('.popup__size-quantity');
 const spanQuantityLeft = goodPopupSection.querySelector('.popup__size-quantity-stock');
@@ -168,8 +168,11 @@ const cartSection = document.querySelector('.cart');
 const cartSectionCloseButton = cartSection.querySelector('.cart__close-wrapper-button');
 const cartList = cartSection.querySelector('.cart__list');
 const emptyCartListElement = cartList.querySelector('.cart__list-element_empty-cart');
-// const cartSubmitButton = cartSection.querySelector('.cart__button-submit');
+const cartButtonSubmit = cartSection.querySelector('.cart__button');
 const cartSubmitAnchor = cartSection.querySelector('.cart__button-submit');
+const sizeList = goodPopupSection.querySelector('.popup__size-list');
+const sizeInputs = goodPopupSection.querySelectorAll('.popup__size-list-element-input');
+const sizeLables = Array.from(goodPopupSection.querySelectorAll('.popup__size-list-element-label'));
 
 //variables
 const goodsCards = [];
@@ -177,11 +180,13 @@ let goodElement;
 let cartQuantity = +cartOrdersQuantity.textContent;
 let goodsToAddToCart = [];
 const domElementsToObserveWidthResize = [goodsSectionContainer, goodPopupContainer];
+let sizeLabelSelected;
 
 //templates
 const goodTemplate = document.querySelector('#good');
 const optionTemplate = document.querySelector('#option');
 const liTempalte = document.querySelector('#list-element');
+const sizeTemplate = document.querySelector('#cloth-size');
 
 //functions
 function generateFromTemplate(template, selector) {
@@ -264,6 +269,6 @@ const resizeObserver = new ResizeObserver((entries) => {
 });
 
 const showSelectValue = function(element, good) {
-  return good.size[element.value];
+  return good.size[element.textContent];
 };
 

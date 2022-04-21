@@ -1,5 +1,0 @@
-.popup__size-form-quantity-wrapper_active {
-  visibility: visible;
-  opacity: 1;
-  transition: visibility 0.01s ease-in-out, opacity 0.45s ease-in-out;
-}

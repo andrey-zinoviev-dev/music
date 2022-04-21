@@ -1,54 +1,15 @@
 //set cookies for cart
-// mainApi.setCartCookie()
-// .then((data) => {
-//     console.log(data);
-//     // if(data.message) {
-//     //     console.log('cookie is set by server');
-//     //     emptyCartListElement.classList.remove('cart__list-element_hidden');
-//     //     return;
-//     // }
-//     // //goodsArray test
-//     // console.log('check cookie');
-//     // goodsToAddToCart = data;
-//     // cartOrdersQuantity.textContent = `${goodsToAddToCart.length}`;
-    
-
-//     // goodsToAddToCart.forEach((goodToAdd) => {
-//     //     const liToInsert = generateFromTemplate(liTempalte, '.cart__list-element');
-//     //     const removeLiFromListButton = liToInsert.querySelector('.cart__list-element-button-close');
-//     //     emptyCartListElement.classList.add('cart__list-element_hidden');
-
-//     //     removeLiFromListButton.addEventListener('click', () => {
-//     //         goodsToAddToCart.pop(goodToAdd);
-//     //         if(goodsToAddToCart.length <= 0) {
-//     //             emptyCartListElement.classList.remove('cart__list-element_hidden');
-//     //         };
-            
-//     //         cartOrdersQuantity.textContent = `${goodsToAddToCart.length}`;
-//     //         cartList.removeChild(liToInsert);
-//     //     });
-
-//     //     liToInsert.querySelector('.cart__list-element-img').src = goodToAdd.pic;
-//     //     liToInsert.querySelector('.cart__list-element-name').textContent = goodToAdd.name;
-//     //     liToInsert.querySelector('.cart__list-element-quantity').textContent = `Количество ${goodToAdd.quantity}`;
-//     //     liToInsert.querySelector('.cart__list-element-price').textContent = `${goodToAdd.price}`;
-//     //     cartList.append(liToInsert);
-
-//     //     // console.log(goodToAdd);
-//     // })
-//     // // goodsToAddToCart.forEach(() >)
-//     // return;
-//     // console.log(goodsToAddToCart, data);
-//     // return goodsToAddToCart = data;
-// });
-
 mainApi.loadInitialCookie()
 .then((data) => {
-    if(!data.cart) {
+    // console.log(JSON.parse(data.cart).length);
+    if(!data.cart || JSON.parse(data.cart).length === 0) {
+        
         emptyCartListElement.classList.remove('cart__list-element_hidden');
+        // cartSubmitAnchor.classList.add('cart__button-submit_disabled');
         return;
     };
     cartSubmitAnchor.classList.remove('cart__button-submit_disabled');
+    // console.log(JSON.parse(data.cart));
     goodsToAddToCart = JSON.parse(data.cart);
     // console.log(goodsToAddToCart);
     cartOrdersQuantity.textContent = `${goodsToAddToCart.length}`;
@@ -76,7 +37,7 @@ mainApi.loadInitialCookie()
         liToInsert.querySelector('.cart__list-element-quantity').textContent = `Количество ${good.quantity}`;
         liToInsert.querySelector('.cart__list-element-price').textContent = `${good.price}`;
         cartList.append(liToInsert);
-        
+
     });
 });
 
@@ -131,14 +92,12 @@ goods.forEach((good) => {
     goodElementFromTemplate.querySelector('.goods__good-quantity').textContent = good.inStock ? "Есть в наличии" : "Нет в наличии";
 
     goodElementFromTemplate.addEventListener('click', () => {
+        
         goodElement = good;
-        //reset sizes select, left quantity of goods
-        Array.from(goodPopupSelect.children).forEach((child) => {
-            if(child.textContent.includes('размер')) {
-                return;
-            }
-            goodPopupSelect.removeChild(child);
+        Array.from(sizeList.children).forEach((child) => {
+            sizeList.removeChild(child);
         });
+        
         spanQuantity.textContent = '';
         spanQuantityLeft.textContent = '';
         goodPopupQuantityWrapper.classList.remove('popup__size-form-quantity-wrapper_active');
@@ -148,10 +107,47 @@ goods.forEach((good) => {
         goodPopupSection.querySelector('.popup__image').src = good.path;
 
         Object.keys(good.size).forEach((sizeOfCloth) => {
-            const optionFromTemplate = generateFromTemplate(optionTemplate, '.popup__size-select-option');
-            optionFromTemplate.value = sizeOfCloth;
-            optionFromTemplate.textContent = sizeOfCloth;
-            goodPopupSelect.append(optionFromTemplate);
+            const sizeFromTemplate = generateFromTemplate(sizeTemplate, '.popup__size-list-element');
+            const sizeInput = sizeFromTemplate.querySelector('.popup__size-list-element-input');
+            sizeInput.id = sizeOfCloth;
+            sizeInput.value = sizeOfCloth;
+            const sizeLabel = sizeFromTemplate.querySelector('.popup__size-list-element-label');
+            sizeLabel.attributes.for.nodeValue = sizeOfCloth;
+            sizeLabel.textContent = sizeOfCloth;
+            if(good.size[sizeOfCloth] <= 0) {
+                // console.log(sizeFromTemplate);
+                sizeFromTemplate.classList.add('popup__size-list-element_disabled');
+                goodPopupQuantityWrapper.classList.remove('popup__size-form-quantity-wrapper_active');
+                // return;
+                goodPopupOrderButton.classList.add('popup__order-button_disabled');
+                goodPopupOrderButton.disabled = true;
+            }
+            sizeLabel.addEventListener('click', (evt) => {
+                Array.from(goodPopupForm.querySelectorAll('.popup__size-list-element')).forEach((input) => {
+                    input.classList.remove('popup__size-list-element_active');
+                });
+                
+                sizeFromTemplate.classList.add('popup__size-list-element_active');
+
+                Array.from(goodPopupForm.querySelectorAll('.popup__size-list-element-input')).forEach((input) => {
+                    input.classList.remove('data-to-send');
+                });
+
+                sizeInput.classList.add('data-to-send');
+
+                spanQuantity.textContent = 'Осталось ';
+                spanQuantityLeft.textContent = good.size[sizeLabel.textContent];
+                goodPopupQuantityWrapper.classList.add('popup__size-form-quantity-wrapper_active');
+                goodPopupOrderButton.classList.remove('popup__order-button_disabled');
+                goodPopupOrderButton.disabled = false;
+                //необходимо для изменения инпута количества одежды
+                sizeLabelSelected = evt.target;
+            });
+            sizeList.append(sizeFromTemplate);
+            // const optionFromTemplate = generateFromTemplate(optionTemplate, '.popup__size-select-option');
+            // optionFromTemplate.value = sizeOfCloth;
+            // optionFromTemplate.textContent = sizeOfCloth;
+            // goodPopupSelect.append(optionFromTemplate);
         });
 
         goodPopupSection.querySelector('.popup__span-good-material').textContent = good.material;
@@ -166,50 +162,57 @@ goods.forEach((good) => {
 });
 
 //cloth size choose event
-goodPopupSelect.addEventListener('change', (evt) => {
-    const sizeOfGood = +showSelectValue(evt.currentTarget, goodElement);
+goodPopupQuantityInput.addEventListener('input', (evt) => {
+    
+    const sizeOfGood = +showSelectValue(sizeLabelSelected, goodElement);
     
     spanQuantityLeft.textContent = sizeOfGood;
 
-    if(goodPopupSelect.value.includes('размер') || sizeOfGood <= 0 ) {
-        spanQuantity.textContent = 'Закончилось';
-        spanQuantityLeft.textContent = '';
-        goodPopupQuantityWrapper.classList.remove('popup__size-form-quantity-wrapper_active');
+    if(sizeOfGood <= 0 || evt.target.value > sizeOfGood) {
+        // spanQuantity.textContent = 'Закончилось';
+        // spanQuantityLeft.textContent = '';
+        // goodPopupQuantityWrapper.classList.remove('popup__size-form-quantity-wrapper_active');
         // return;
         goodPopupOrderButton.classList.add('popup__order-button_disabled');
         return goodPopupOrderButton.disabled = true;
     }
 
-    spanQuantity.textContent = 'Осталось ';
+    // spanQuantity.textContent = 'Осталось ';
     goodPopupQuantityWrapper.classList.add('popup__size-form-quantity-wrapper_active');
     // return;
     goodPopupOrderButton.classList.remove('popup__order-button_disabled');
     return goodPopupOrderButton.disabled = false;
+
 });
 
 //cloth quantity change event
-goodPopupQuantityInput.addEventListener('input', (evt) => {
-    const clothQuantity = +evt.currentTarget.value;
+// goodPopupQuantityInput.addEventListener('input', (evt) => {
+//     const clothQuantity = +evt.currentTarget.value;
     
-    if(clothQuantity <= 0 || clothQuantity > goodElement.size[goodPopupSelect.value]) {
-        goodPopupOrderButton.classList.add('popup__order-button_disabled');
-        return goodPopupOrderButton.disabled = true;
-    }
-    goodPopupOrderButton.classList.remove('popup__order-button_disabled');
-    return goodPopupOrderButton.disabled = false;
-});
+//     if(clothQuantity <= 0 || clothQuantity > goodElement.size[goodPopupSelect.value]) {
+//         goodPopupOrderButton.classList.add('popup__order-button_disabled');
+//         return goodPopupOrderButton.disabled = true;
+//     }
+//     goodPopupOrderButton.classList.remove('popup__order-button_disabled');
+//     return goodPopupOrderButton.disabled = false;
+// });
 
 //add clothes to cart event
 goodPopupOrderButton.addEventListener('click', (evt) => {
+    const elementsToSend = Array.from(goodPopupForm.querySelectorAll('.data-to-send'));
+    // const sizeInput = goodPopupSection.querySelector('.popup__size-list-element-input');
+    // console.log(sizeInput);
     evt.preventDefault();
-    const objectToSend = {};
+    const objectToSend = {}; 
+    // let elementInArrayFound = false;
     objectToSend.pic = goodElement.path;
     objectToSend.name = goodElement.name;
     objectToSend.price = goodElement.price;
+    
     elementsToSend.forEach((element) => {
         objectToSend[element.name] = element.value;   
     });
-
+    
     return mainApi.sendCartDetails(objectToSend)
     .then((data) => {
         cartSubmitAnchor.classList.remove('cart__button-submit_disabled');
@@ -257,15 +260,129 @@ goodPopupOrderButton.addEventListener('click', (evt) => {
 
         emptyCartListElement.classList.add('cart__list-element_hidden');
 
-        // setTimeout(() => {
-        //     goodPopupSection.classList.remove('popup_opened');
-        // }, 1200);
+    //     // setTimeout(() => {
+    //     //     goodPopupSection.classList.remove('popup_opened');
+    //     // }, 1200);
     });
+
+    //РАСКОММЕНТИРОВАТЬ ЧУТЬ ПОЗЖЕ!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+    // goodsToAddToCart.push(objectToSend);
+
+    // cartOrdersQuantity.textContent = `${goodsToAddToCart.length}`;
+
+    // emptyCartListElement.classList.add('cart__list-element_hidden');
+//РАСКОММЕНТИРОВАТЬ ЧУТЬ ПОЗЖЕ!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+    // //main info to send to cart
+    // const liToInsert = generateFromTemplate(liTempalte, '.cart__list-element');
+    // const removeLiFromListButton = liToInsert.querySelector('.cart__list-element-button-close');
+    // removeLiFromListButton.addEventListener('click', () => {
+    //     goodsToAddToCart.pop(objectToSend);
+    //     if(goodsToAddToCart.length <= 0) {
+    //         emptyCartListElement.classList.remove('cart__list-element_hidden');
+    //     };
+
+    //     mainApi.deleteFromCart(good)
+    //     .then((data) => {
+    //         console.log(data);
+    //         // goodsToAddToCart.pop(good);
+    //         cartOrdersQuantity.textContent = `${goodsToAddToCart.length}`;
+    //         cartList.removeChild(liToInsert);
+    //         goodsToAddToCart = data; 
+    //     })
+
+    // });
+
+    // liToInsert.querySelector('.cart__list-element-img').src = objectToSend.pic;
+    // liToInsert.querySelector('.cart__list-element-name').textContent = objectToSend.name;
+    // liToInsert.querySelector('.cart__list-element-quantity').textContent = `Количество ${objectToSend.quantity}`;
+    // liToInsert.querySelector('.cart__list-element-price').textContent = `${objectToSend.price}`;
+    // cartList.append(liToInsert);
+
+    // setTimeout(() => {
+    //     goodPopupSection.classList.remove('popup_opened');
+    // }, 1200);
+    // // //change cart details
+    // mainApi.sendCartDetails(objectToSend)
+    // .then((data) => {        
+    //     // console.log(data);
+    //     // if(localStorage.getItem('cart') === null) {
+    //     //     return localStorage.setItem('cart', data);
+    //     // }
+    //     // localStorage.clear();
+    //     // return localStorage.setItem('cart', JSON.stringify(data));
+    //     // return goodPopupSection.classList.remove('popup_opened');
+    // });
+    // const elementKeys = Object.keys(objectToSend).filter((element) => {
+    //     return element !== "quantity";
+    // });
+   
+    // const elementIndexFoundInCart = goodsToAddToCart.findIndex((element) => {
+    //    return elementKeys.every((key) => {
+    //     return objectToSend[key] === element[key];
+    //    });
+    // });
+    
+    // if(elementIndexFoundInCart >= 0) {
+    //     goodsToAddToCart[elementIndexFoundInCart].quantity = objectToSend.quantity;
+    //     // return console.log(goodsToAddToCart[elementIndexFoundInCart]);
+
+    //     return mainApi.sendCartDetails(goodsToAddToCart[elementIndexFoundInCart])
+    //     .then((data) => {
+    //         //переделать массив, который отправляется с сервера (добавить к уже имеющемуся количеству + то кол-во, которое отправляется на сервер)
+    //         console.log(data);
+    //         // goodsToAddToCart.push(objectToSend);
+    //         // goodsToAddToCart = data;
+    
+    //         // emptyCartListElement.classList.add('cart__list-element_hidden');
+    
+    //         // setTimeout(() => {
+    //         //     goodPopupSection.classList.remove('popup_opened');
+    //         // }, 1200);
+    //     });
+    // }
+    // const liToInsert = generateFromTemplate(liTempalte, '.cart__list-element');
+    // const removeLiFromListButton = liToInsert.querySelector('.cart__list-element-button-close');
+    // removeLiFromListButton.addEventListener('click', () => {
+    //     // goodsToAddToCart.pop(objectToSend);
+    //     if(goodsToAddToCart.length <= 0) {
+    //         emptyCartListElement.classList.remove('cart__list-element_hidden');
+    //     };
+
+    //     mainApi.deleteFromCart(good)
+    //     .then((data) => {
+    //         cartOrdersQuantity.textContent = `${goodsToAddToCart.length}`;
+    //         cartList.removeChild(liToInsert);
+    //         goodsToAddToCart = data; 
+    //     });
+    // });
+
+    // liToInsert.querySelector('.cart__list-element-img').src = objectToSend.pic;
+    // liToInsert.querySelector('.cart__list-element-name').textContent = objectToSend.name;
+    // liToInsert.querySelector('.cart__list-element-quantity').textContent = `Количество ${objectToSend.quantity}`;
+    // liToInsert.querySelector('.cart__list-element-price').textContent = `${objectToSend.price}`;
+    // cartList.append(liToInsert);
+
+
+    // // //change cart details
+    // return mainApi.sendCartDetails(objectToSend)
+    // .then((data) => {
+    //     // goodsToAddToCart.push(objectToSend);
+    //     goodsToAddToCart = data;
+
+    //     cartOrdersQuantity.textContent = `${goodsToAddToCart.length}`;
+
+    //     emptyCartListElement.classList.add('cart__list-element_hidden');
+
+    //     setTimeout(() => {
+    //         goodPopupSection.classList.remove('popup_opened');
+    //     }, 1200);
+    // });
 });
 
 //place order event
 cartSubmitAnchor.addEventListener('click',  (evt) => {
     // evt.preventDefault();
+    // console.log(objectToSend);
     // mainApi.sendCartDetails(goodsToAddToCart)
     // .then((data) => {
     //     console.log(data);

@@ -122,16 +122,19 @@
                 <span class="popup__span-good-print"></span>
                 <form class="popup__size-form">
                     <span class="popup__size-span">Размеры</span>
-                    <select name="size" id="" class="popup__size-select data-to-send">
+                    <ul class="popup__size-list">
+
+                    </ul>
+                    <!-- <select name="size" id="" class="popup__size-select data-to-send">
                         <option selected>Выберите размер</option>
-                    </select>
+                    </select> -->
                     <div class="popup__size-form-quantity-wrapper">
                         <!-- <button>+</button> -->
                         <span>Количество</span>
                         <input class="popup__size-form-quantity-input data-to-send" type="number" name="quantity" value="1"/>
                         <!-- <button>-</button> -->
                     </div>
-                    <button type="submit" class="popup__order-button popup__order-button_disabled" disabled>Добавить в корзину</button>
+                    <button type="submit" class="popup__order-button " >Добавить в корзину</button>
                 </form>
             </div>
         </div>
@@ -153,7 +156,10 @@
             <!-- <button class="cart__button-submit">Оформить заказ
                 
             </button> -->
-            <a href="./order.html" class="cart__button-submit cart__button-submit_disabled">Оформить заказ</a>
+            <a href="/orderPage" class="cart__button-submit cart__button-submit_disabled">Оформить заказ</a>
+            <!-- <button class="cart__button"> -->
+                
+            <!-- </button> -->
         </div>
         <div class="cart__overlay"></div>
     </section>
@@ -181,6 +187,12 @@
                 </div>
                 <!-- <span class="cart__list-element-quantity"></span> -->
             </div>
+        </li>
+    </template>
+    <template id="cloth-size">
+        <li class="popup__size-list-element">
+            <input type="radio" class="popup__size-list-element-input" name="size">
+            <label for="" class="popup__size-list-element-label"></label>
         </li>
     </template>
     <!-- <script src="https://cdn.jsdelivr.net/npm/localstorage-slim"></script> -->

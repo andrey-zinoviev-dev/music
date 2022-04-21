@@ -1,8 +1,0 @@
-.footer__list {
-  padding: 0;
-    list-style: none;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    min-height: 150px;
-}

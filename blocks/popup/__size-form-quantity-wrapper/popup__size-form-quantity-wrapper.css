@@ -1,6 +1,0 @@
-.popup__size-form-quantity-wrapper {
-  visibility: hidden;
-  opacity: 0;
-  margin: 4% 0 0 0;
-  transition: visibility 0.01s ease-in-out 0.45s, opacity 0.45s ease-in-out;
-}
