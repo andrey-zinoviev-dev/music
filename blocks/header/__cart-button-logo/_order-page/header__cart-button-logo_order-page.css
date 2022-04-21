@@ -1,0 +1,8 @@
+.header__cart-button-logo_order-page {
+  color: rgba(25,171,193,0.7);
+  transition: color 0.25s ease-in-out;
+}
+
+.header__cart-button:hover:hover .header__cart-button-logo_order-page{
+  color: rgba(25,171,193,1);
+}

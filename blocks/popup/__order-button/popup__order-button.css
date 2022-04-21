@@ -1,0 +1,14 @@
+.popup__order-button {
+  margin: 5% 0 0 0;
+  padding: 15px 20px;
+  box-sizing: border-box;
+  border-radius: 35px;
+  background-color: transparent;
+  border: 1px solid #ff051b;
+  color: #ff051b;
+  box-shadow: 0 0 20px transparent;
+}
+
+.popup__order-button:hover {
+  box-shadow: 0 0 20px #ff051b;
+}

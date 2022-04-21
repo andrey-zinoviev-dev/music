@@ -1,0 +1,16 @@
+.cart__button-submit {
+  margin: 0 auto 15% auto;
+  padding: 2% 28%;
+  box-sizing: border-box;
+  background: transparent;
+  border-top: 1px solid red;
+  color: white;
+  font-size: 18px;
+  text-decoration: none;
+}
+
+@media screen and (max-width: 767px) {
+  .cart__button-submit {
+    padding: 2% 24%;
+  }
+}

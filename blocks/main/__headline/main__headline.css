@@ -1,0 +1,53 @@
+@keyframes lampIgnition {
+  15%, 20%, 50%, 70%, 85%,
+ 100%
+ {
+   color: #ff051b;
+   text-shadow: 0 0px 10px #ff051b, 0 0px 35px #ff051b, 0 0 55px #ff051b;
+ }
+ 0%, 19%, 29%, 49%, 55%, 90% {
+   text-shadow: none;
+   color: grey;
+ }
+}
+.main__headline {
+   /* font-size: 32px; */
+  font-size: 72px;
+  margin: 0;
+  text-align: center;
+  /* color: transparent; */
+  color: #ff051b;
+  /* -webkit-text-stroke: 2px #ff051b; */
+  text-shadow: 0 0px 25px #ff051b;
+  letter-spacing: 20px;
+  margin: 5% 0 2% 0;
+  z-index: 2;
+   /* color: grey; */
+}
+
+@media screen and (max-width: 1439px) {
+  .main__headline {
+    font-size: 52px;
+    /* font-size: 48px; */
+    letter-spacing: 12px;
+  }
+}
+
+@media screen and (max-width: 1023px) {
+  .main__headline {
+    font-size: 42px;
+    letter-spacing: 8px;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .main__headline {
+    font-size: 27px;
+    margin: 5% 0;
+  }
+}
+/* @media screen and (max-width: 1279px) {
+  .main__headline {
+    font-size: 42px;
+  }
+} */

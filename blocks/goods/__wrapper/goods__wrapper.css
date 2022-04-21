@@ -1,0 +1,13 @@
+.goods__wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  margin-top: 10%;
+}
+
+@media screen and (max-width: 767px) {
+  .goods__wrapper {
+    justify-content: center;
+  }
+}

@@ -1,0 +1,31 @@
+@import url(./__wrapper/order__wrapper.css);
+@import url(./__headline/order__headline.css);
+@import url(./__form/order__form.css);
+@import url(./__form-client-wrapper/order__form-client-wrapper.css);
+@import url(./__form-input-wrapper/order__form-input-wrapper.css);
+@import url(./__form-input/order__form-input.css);
+@import url(./__form-label/order__form-label.css);
+@import url(./__form-delivery-select/order__form-delivery-select.css);
+@import url(./__form-delivery-select-option/order__form-delivery-select-option.css);
+@import url(./__form-button-submit/order__form-button-submit.css);
+@import url(./__details-wrapper/order__details-wrapper.css);
+@import url(./__details-content-wrapper/order__details-content-wrapper.css);
+@import url(./__details-content-detail/order__details-content-detail.css);
+@import url(./__details-content-detail-para/order__details-content-detail-para.css);
+@import url(./__details-content-name/order__details-content-name.css);
+@import url(./__details-price-wrapper/order__details-price-wrapper.css);
+@import url(./__details-price-wrapper-div/order__details-price-wrapper-div.css);
+@import url(./__details-price-total/order__details-price-total.css);
+@import url(./__overlay/order__overlay.css);
+.order {
+  background-image: url(../../images/neverlove_gig.jpg);
+  background-size: cover;
+  /* min-height: 75vh; */
+  min-height: 100vh;
+  position: relative;
+  /* padding: 5% 0; */
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

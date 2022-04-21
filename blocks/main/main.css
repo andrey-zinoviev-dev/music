@@ -1,0 +1,23 @@
+@import url(./__headline/main__headline.css);
+@import url(./__button/main__button.css);
+@import url(./__wrapper/main__wrapper.css);
+@import url(./__wrapper-element/main__wrapper-element.css);
+@import url(./__videos-video/main__videos-video.css);
+@import url(./__overlay/main__overlay.css);
+.main {
+    /* padding: 150px 0; */
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background-image: url(../../images/yarik.jpg);
+    background-size: cover;
+    position: relative;
+}
+
+@media screen and (max-width: 767px) {
+    .main {
+        background-position: bottom;
+    }
+}

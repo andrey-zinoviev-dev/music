@@ -1,0 +1,7 @@
+.order__details-content-detail {
+  max-width: 250px;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  min-height: 75px;
+}
