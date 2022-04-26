@@ -399,10 +399,17 @@ headerSandwichButton.addEventListener('click', () => {
 //main section parallax
 mainSection.addEventListener('mousemove', (evt) => {
     mainImages.forEach((image) => {
-        console.log(evt.clientX);
-        image.style
+        // console.log(window.innerWidth);
+        // console.log(evt.clientX);
+        image.style.transform = `translateX(${evt.clientX*image.getAttribute('data-speed')/200}px) translateY(${evt.clientY*image.getAttribute('data-speed')/200}px)`;
         // console.log(getComputedStyle(image).zIndex);
     });
+})
+
+mainSection.addEventListener('mouseout', (evt) => {
+    mainImages.forEach((image) => {
+        image.style.transform = `translateX(0px) translateY(0px)`;
+    })
 })
 
 // observer.observe(interludeSection);
