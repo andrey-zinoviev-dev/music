@@ -1,0 +1,5 @@
+.main__image_background {
+  filter: blur(0px);
+  object-fit: cover;
+  z-index: 5;
+}

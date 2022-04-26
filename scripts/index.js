@@ -396,7 +396,16 @@ headerSandwichButton.addEventListener('click', () => {
     headerOverlay.classList.toggle('header__overlay_visible');
 });
 
-observer.observe(interludeSection);
+//main section parallax
+mainSection.addEventListener('mousemove', (evt) => {
+    mainImages.forEach((image) => {
+        console.log(evt.clientX);
+        image.style
+        // console.log(getComputedStyle(image).zIndex);
+    });
+})
+
+// observer.observe(interludeSection);
 goodsObserver.observe(goodsSection);
 resizeObserver.observe(goodsSection);
 resizeObserver.observe(goodPopupSection);

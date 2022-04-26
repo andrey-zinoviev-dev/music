@@ -17,6 +17,8 @@
 @import url(../blocks/header/__overlay/_visible/header__overlay_visible.css);
 @import url(../blocks/content/content.css);
 @import url(../blocks/main/main.css);
+@import url(../blocks/main/__image/_background/main__image_background.css);
+@import url(../blocks/main/__image/_guitarist/main__image_guitarist.css);
 @import url(../blocks/main/__headline/_active/main__headline_active.css);
 @import url(../blocks/main/__headline/_fixed/main__headline_fixed.css);
 @import url(../blocks/interlude/interlude.css);
