@@ -400,15 +400,20 @@ headerSandwichButton.addEventListener('click', () => {
 mainSection.addEventListener('mousemove', (evt) => {
     mainImages.forEach((image) => {
         // console.log(window.innerWidth);
-        // console.log(evt.clientX);
-        image.style.transform = `translateX(${evt.clientX*image.getAttribute('data-speed')/200}px) translateY(${evt.clientY*image.getAttribute('data-speed')/200}px)`;
+        // console.log((window.innerWidth - evt.clientX*image.getAttribute('data-speed'))/200, (window.innerHeight - evt.clientY*image.getAttribute('data-speed'))/200);
+        image.style.transition = `all 0.5 ease-in-out`;
+        image.style.transform = `perspective(500px) translateX(${(window.innerWidth - evt.clientX*image.getAttribute('data-speed'))/300}px) translateY(${(window.innerHeight - evt.clientY*image.getAttribute('data-speed'))/300}px) translateZ(${getComputedStyle(image).zIndex}px)`;
         // console.log(getComputedStyle(image).zIndex);
     });
 })
 
-mainSection.addEventListener('mouseout', (evt) => {
+mainSection.addEventListener('mouseleave', (evt) => {
     mainImages.forEach((image) => {
         image.style.transform = `translateX(0px) translateY(0px)`;
+        image.style.transition = `transform 0.5s ease-in-out`;
+        setTimeout(() => {
+            image.style.transition = 'none';
+          }, 500);
     })
 })
 

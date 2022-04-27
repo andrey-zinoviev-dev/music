@@ -8,6 +8,7 @@
 @import url(./__burger-button-logo/header__burger-button-logo.css);
 @import url(./__overlay/header__overlay.css);
 .header {
+    display: none;
     position: fixed;
     width: 100%;
     background-color: rgba(0,0,0,0);
