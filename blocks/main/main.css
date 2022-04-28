@@ -15,7 +15,8 @@
     /* background-image: url(../../images/yarik.jpg); */
     /* background-image: url(../../images/back_clean.jpg); */
     background-size: cover;
-    position: relative;
+    position: absolute;
+    overflow: hidden;
 }
 
 @media screen and (max-width: 767px) {

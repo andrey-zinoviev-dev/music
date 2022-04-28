@@ -9,6 +9,7 @@
 @import url(./__good-quantity/goods__good-quantity.css);
 @import url(./__overlay/goods__overlay.css);
 .goods {
+  display: none;
   min-height: 100vh;
   padding: 5% 0;
   /* background-color: black; */
