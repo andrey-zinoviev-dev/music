@@ -1,3 +1,8 @@
+//import Highway
+import Highway from '@dogstudio/highway';
+const high = new Highway.Core();
+console.log(high);
+
 //set cookies for cart
 // mainApi.loadInitialCookie()
 // .then((data) => {
@@ -65,10 +70,10 @@ cartSectionCloseButton.addEventListener('click', () => {
 
 //scroll to goods on click
 landingButton.addEventListener('click', () => {
-    goodsSection.scrollIntoView({
-        block: 'start',
-        behavior: "smooth",
-    });
+    // goodsSection.scrollIntoView({
+    //     block: 'start',
+    //     behavior: "smooth",
+    // });
 });
 
 //add close animation for popups
