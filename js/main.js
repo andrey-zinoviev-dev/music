@@ -1,0 +1,1 @@
+(()=>{"use strict";var e=document.querySelector(".goods__wrapper-text");e&&e.addEventListener("mousemove",(function(){console.log("goods page is hovered")}))})();
