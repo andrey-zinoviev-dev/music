@@ -432,6 +432,7 @@
   filter: blur(3px);
   transform-style: preserve-3d;
   object-fit: cover;
+  /* transition: transform 0.25s ease-in-out; */
   /* transition: transform 0.5s ease-in-out; */
 }
 .main {
