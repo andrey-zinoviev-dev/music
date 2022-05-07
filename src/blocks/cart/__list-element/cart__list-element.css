@@ -1,0 +1,9 @@
+.cart__list-element {
+  text-align: center;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  position: relative;
+  padding: 5% 0;
+  border-top: 1px solid #ff051b;
+}

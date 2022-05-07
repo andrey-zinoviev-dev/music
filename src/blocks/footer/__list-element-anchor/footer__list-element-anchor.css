@@ -1,0 +1,9 @@
+.footer__list-element-anchor {
+  color: rgba(255, 255, 255, 0.65);
+  text-decoration: none;
+  transition: all 0.245s ease-in-out;
+}
+
+.footer__list-element-anchor:hover {
+  color: rgba(255, 255, 255, 1);
+}

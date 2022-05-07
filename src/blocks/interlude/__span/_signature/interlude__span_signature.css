@@ -1,0 +1,10 @@
+.interlude__span_signature {
+  align-self: flex-end;
+  font-weight: 400;
+}
+
+@media screen and (max-width: 1023px) {
+  .interlude__span_signature {
+    font-size: 18px;
+  }
+}

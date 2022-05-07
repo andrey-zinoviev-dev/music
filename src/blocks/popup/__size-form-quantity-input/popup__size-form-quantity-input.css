@@ -1,0 +1,14 @@
+.popup__size-form-quantity-input {
+  max-width: 40px;
+  text-align: center;
+  min-height: 30px;
+  box-sizing: border-box;
+  background-color: transparent;
+  border: 2px solid white;
+  color: white;
+  border-radius: 9px;
+  margin: 0 0 0 5%;
+}
+.popup__size-form-quantity-input::-webkit-inner-spin-button, .popup__size-form-quantity-input::-webkit-outer-spin-button {
+  appearance: none;
+}

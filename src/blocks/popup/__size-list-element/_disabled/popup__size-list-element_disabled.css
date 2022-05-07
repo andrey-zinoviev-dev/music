@@ -1,0 +1,6 @@
+.popup__size-list-element_disabled {
+  border: 2px solid rgba(255, 255, 255, 0.35);
+  color: rgba(255, 255, 255, 0.35);
+  cursor: default;
+  pointer-events: none;
+}

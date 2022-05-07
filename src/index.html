@@ -17,7 +17,7 @@
 <body class="root">
     <header class="header">
         <div class="container container_header">
-            <img class="header__logo" src="./images/neverlove_title.png" alt="">
+            <img class="header__logo" src="<%=require('./images/title.png')%>" alt="">
             <div>
                 <nav class="header__menu">
                     <a href="" class="header__menu-link">Главная</a>
@@ -36,20 +36,20 @@
         </div>
         <div class="header__overlay"></div>
     </header>
-    <main class="content">
+    <main class="content transition-fade">
         <section class="main">
             <h1 class="main__headline">
                 Прикоснись к инфернальным изгибам
             </h1>
             <div class="container container_centered">
                 <button class="main__button">
-                    <a href="./goods.html">ПРИКОСНУТЬСЯ</a>
+                    <a class="main__button-anchor" href="/goods">ПРИКОСНУТЬСЯ</a>
                 </button>
             </div>
-            <img class="main__image main__image_background" data-speed = "-4" src="./images/back_clean.jpg" alt="">
-            <img class="main__image main__image_guitarist" data-speed="3" src="./images/man_.png" alt="">
+            <img class="main__image main__image_background" data-speed = "-1" src="<%=require('./images/queen.png')%>" alt="">
+            <img class="main__image main__image_guitarist" data-speed="5" src="<%=require('./images/man_.png')%>" alt="">
             <!-- <img src="./images/blur_man.png" alt=""> -->
-            <img class="main__image main__image_mic" data-speed="9" src="./images/mike___.png" alt="">
+            <img class="main__image main__image_mic" data-speed="9" src="<%=require('./images/mike___.png')%>" alt="">
             <div class="main__overlay"></div>
         </section>
         <!-- <section class="goods">
@@ -66,7 +66,7 @@
             <div class="goods__overlay"></div>
         </section> -->
     </main>
-    <footer class="footer">
+    <!-- <footer class="footer">
         <div class="container container_flex-centered">
             <img class="footer__logo" src="./images/neverlove_title.png" alt="">
             <ul class="footer__list">
@@ -95,8 +95,8 @@
                 </li>
             </ul>
         </div>
-    </footer>
-    <section class="popup popup_good popup_good-select">
+    </footer> -->
+    <!-- <section class="popup popup_good popup_good-select">
         <div class="container container_flex-centered container_popup-good">
             <button class="popup__close"><i class="popup__close-logo fa-solid fa-circle-xmark"></i></button>
             <img class="popup__image" src="" alt="">
@@ -113,22 +113,20 @@
                     <ul class="popup__size-list">
 
                     </ul>
-                    <!-- <select name="size" id="" class="popup__size-select data-to-send">
-                        <option selected>Выберите размер</option>
-                    </select> -->
+
                     <div class="popup__size-form-quantity-wrapper">
-                        <!-- <button>+</button> -->
+                        
                         <span>Количество</span>
                         <input class="popup__size-form-quantity-input data-to-send" type="number" name="quantity" value="1"/>
-                        <!-- <button>-</button> -->
+                        
                     </div>
                     <button type="submit" class="popup__order-button " >Добавить в корзину</button>
                 </form>
             </div>
         </div>
         <div class="popup__overlay"></div>
-    </section>
-    <section class="cart">
+    </section> -->
+    <!-- <section class="cart">
         <div class="cart__contents">
             <div class="wrapper">
                 <div class="cart__close-wrapper">
@@ -141,16 +139,12 @@
                     </li>
                 </ul>
             </div>
-            <!-- <button class="cart__button-submit">Оформить заказ
-                
-            </button> -->
+
             <a href="./order.html" class="cart__button-submit cart__button-submit_disabled">Оформить заказ</a>
-            <!-- <button class="cart__button"> -->
-                
-            <!-- </button> -->
+
         </div>
         <div class="cart__overlay"></div>
-    </section>
+    </section> -->
     <template id="good">
         <div class="goods__good">
             <img class="goods__good-img" src="" alt="">

@@ -1,4 +1,6 @@
-console.log('goods page is loaded');
-import Highway from '@dogstudio/highway';
-const high = new Highway.Core();
-console.log(high);
+//other imports
+
+export const goodsSection = document.querySelector('.goods');
+console.log(goodsSection);
+
+

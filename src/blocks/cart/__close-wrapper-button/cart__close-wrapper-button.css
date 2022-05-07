@@ -1,0 +1,13 @@
+.cart__close-wrapper-button {
+  background-color: transparent;
+  color: #ff051a94;
+  padding: 1% 0;
+  border: none;
+  width: 100%;
+  cursor: pointer;
+  transition: color 0.45s ease-in-out;
+}
+
+.cart__close-wrapper-button:hover {
+  color: #ff051b;
+}

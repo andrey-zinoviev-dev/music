@@ -1,0 +1,20 @@
+.order__form-input {
+  /* width: 100%; */
+  padding: 2% 5% 2% 0;
+  margin: 0 0 5% 0;
+  background-color: transparent;
+  border: none;
+  border-bottom: 2px solid #9aebec75;
+  outline: none;
+  color: white;
+  cursor: pointer;
+  box-sizing: border-box;
+}
+
+.order__form-input::placeholder {
+  color: rgba(255, 255, 255, 0.65);
+}
+
+.order__form-input:focus {
+  border-bottom: 1px solid #9aeaec;
+}

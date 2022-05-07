@@ -1,0 +1,10 @@
+.header__cart-button-logo {
+  color: #ff051ab2;
+  font-size: 22px;
+  transition: color 0.25s ease-in-out;
+  position: relative;
+}
+
+.header__cart-button:hover .header__cart-button-logo {
+  color: #ff051a;
+}
