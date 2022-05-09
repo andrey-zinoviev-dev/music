@@ -6,7 +6,7 @@ const { loader } = require('mini-css-extract-plugin');
 module.exports = {
   entry: {
     main: './src/index.js',
-    goods: './src/goods.js',
+    // goods: './src/goods.js',
   },
   output: {
     path: path.resolve(__dirname, 'dist'),
@@ -43,12 +43,12 @@ module.exports = {
     new HtmlWebpackPlugin({
       template: './src/index.html',
       filename: 'index.html',
-      chunks: ['main']
+      // chunks: ['main']
     }),
     new HtmlWebpackPlugin({
       template: './src/goods.html',
       filename: 'goods.html',
-      chunks: ['goods'],
+      // chunks: ['goods'],
     }),
     new MiniCssExtractPlugin(),
   ]

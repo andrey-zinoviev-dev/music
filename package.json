@@ -19,10 +19,10 @@
   },
   "homepage": "https://github.com/andrey-zinoviev-dev/music",
   "dependencies": {
+    "@barba/core": "^2.9.7",
     "@dogstudio/highway": "^2.2.1",
     "core-js": "^3.22.3",
-    "gsap": "^3.10.4",
-    "swup": "^2.0.14"
+    "gsap": "^3.10.4"
   },
   "devDependencies": {
     "@babel/core": "^7.17.9",
