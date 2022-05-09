@@ -693,15 +693,15 @@
 }
 .goods {
   /* display: none; */
-  min-height: 100vh;
+  /* min-height: 100vh; */
   padding: 5% 0;
   /* background-color: black; */
   /* background-image: url(../../images/neverlove_gig.jpg); */
-  background-image: url(b13a039f2ec8d834631c.png);
+  /* background-image: url(../../images/neverlove-kisses.png); */
   position: relative;
   box-sizing: border-box;
-  border-top: 1px solid #813c58;
-  background-size: cover;
+  /* border-top: 1px solid #813c58; */
+  /* background-size: cover; */
 }
 
 .footer__logo {
@@ -1272,5 +1272,13 @@
   border: 2px solid rgba(25,171,193,1);
   background-color: rgba(25,171,193,1);
   color: white;
+}
+.transition-fade {
+  opacity: 1;
+  transition: opacity 0.25s ease-in-out;
+}
+
+html.is-animating .transition-fade {
+  opacity: 0;
 }
 /* @import url(../fonts/teko.css); */
