@@ -1,6 +1,8 @@
 .transition-fade {
   opacity: 1;
   transition: opacity 0.25s ease-in-out;
+  position: relative;
+  z-index: 20;
 }
 
 html.is-animating .transition-fade {

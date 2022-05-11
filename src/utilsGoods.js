@@ -123,21 +123,21 @@ export const goods = [
     printMode: 'Вытравная шелкография',
     price: 3999,
   }, 
-  {
-    name: "Футболка Ярослав",
-    path: yaroslav,
-    inStock: true,
-    size: {
-      XS: 4,
-      S: 1,
-      M: 3,
-      L: 0,
-      XL: 2
-    },
-    material: '100% хлопок',
-    printMode: 'Высококлассная шелкография',
-    price: 2199,
-  },
+  // {
+  //   name: "Футболка Ярослав",
+  //   path: yaroslav,
+  //   inStock: true,
+  //   size: {
+  //     XS: 4,
+  //     S: 1,
+  //     M: 3,
+  //     L: 0,
+  //     XL: 2
+  //   },
+  //   material: '100% хлопок',
+  //   printMode: 'Высококлассная шелкография',
+  //   price: 2199,
+  // },
 ];
 export const goodsSection = document.querySelector('.goods');
 
