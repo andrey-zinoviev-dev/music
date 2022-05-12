@@ -17,6 +17,7 @@ const swup = new Swup();
 
 swup.on('contentReplaced', initPages);
 // swup.on('popState', initPages);
+// swup.on('popState', initPages);
 // if(imagesOnMainPage) {
 //   mainSection.addEventListener('mousemove', (evt) => {
 //     imagesOnMainPage.forEach((image) => {

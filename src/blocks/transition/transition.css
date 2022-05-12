@@ -12,15 +12,17 @@ html.is-animating .transition-fade {
 .transition-slide {
   /* color: red; */
   pointer-events: all;
-  opacity: 1;
-  position: absolute;
-  left: 0;
-  transition: all 1s ease-in-out;
+  /* opacity: 1; */
+  /* position: absolute; */
+  /* left: 0; */
+  transform: translateX(0);
+  transition: all 1.5s ease-out 0.15s;
 }
 
 html.is-animating .transition-slide {
   /* color: green; */
+  transform: translateX(-200%);
   pointer-events: none;
-  opacity: 0;
-  left: -250%;
+  /* opacity: 0; */
+  /* left: -250%; */
 }
