@@ -39,6 +39,7 @@ function initPages() {
   if(goodsContainer) {
     const goodsWrapper = document.querySelector('.goods__wrapper');
 
+    // setTimeout(()=>{}, 250)
     return goods.forEach((good) => {
       const goodElementFromTemplate = generateFromTemplate(goodTemplate, '.goods__good');
       goodElementFromTemplate.querySelector('.goods__good-img').src = good.path;

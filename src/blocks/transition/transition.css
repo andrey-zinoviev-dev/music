@@ -1,10 +1,26 @@
 .transition-fade {
   opacity: 1;
-  transition: opacity 0.25s ease-in-out;
+  transition: opacity 0.5s ease-in-out;
   position: relative;
   z-index: 20;
 }
 
 html.is-animating .transition-fade {
   opacity: 0;
+}
+
+.transition-slide {
+  /* color: red; */
+  pointer-events: all;
+  opacity: 1;
+  position: absolute;
+  left: 0;
+  transition: all 1s ease-in-out;
+}
+
+html.is-animating .transition-slide {
+  /* color: green; */
+  pointer-events: none;
+  opacity: 0;
+  left: -250%;
 }
